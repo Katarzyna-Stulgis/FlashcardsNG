@@ -1,0 +1,31 @@
+.info {
+    margin: 30px;
+    padding: 20px;
+    background-color: #A6E9D5;
+}
+
+mat-icon {
+    transform: scale(1.5);
+    vertical-align: middle;
+}
+
+.info-folder>p {
+    display: inline-block;
+    padding-right: 25px;
+    margin: 0;
+}
+
+.add-folder {
+    float: right;
+    vertical-align: middle;
+}
+
+.info>div {
+    display: inline;
+    font-size: x-large;
+    justify-content: center;
+}
+
+.folders {
+    margin: 30px;
+}

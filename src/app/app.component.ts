@@ -9,7 +9,7 @@ import { FolderService } from './services/folder.service';
 })
 export class AppComponent {
   title = 'FlashcardsNG';
-  folders: Folder[] = [];
+/*   folders: Folder[] = [];
   folderToEdit?: Folder;
 
   constructor(private folderService: FolderService) { }
@@ -30,5 +30,5 @@ export class AppComponent {
 
   editFolder(folder: Folder) {
     this.folderToEdit = folder;
-  }
+  } */
 }

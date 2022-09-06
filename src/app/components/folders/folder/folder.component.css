@@ -1,0 +1,21 @@
+.folder {
+    background-color: #D2F4EA;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+.folder-info{
+    padding: 15px;
+}
+
+.col{
+    display: inline;
+}
+
+.folder-name{
+    font-size: large;
+    font-weight: 500;
+}
+.decks-amount{
+    font-size: small;
+}

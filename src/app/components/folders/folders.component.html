@@ -1,0 +1,31 @@
+<!-- <div *ngIf="folder">
+    <h2>{{ folder.name }}</h2>
+    <div>
+        Name:
+        <input [(ngModel)] = "folder.name" placeholder="Name"/>
+    </div>
+    <div>
+        Description:
+        <input [(ngModel)] = "folder.description" placeholder="Description"/>
+    </div>
+    
+    <button (click)="editFolder(folder)" *ngIf="folder.folderId">Update</button>
+    <button (click)="deleteFolder(folder)" *ngIf="folder.folderId">Delete</button>
+    <button (click)="addFolder(folder)" *ngIf="!folder.folderId">Add</button>
+
+</div>
+ -->
+<div class="info">
+    <div class="info-folder"> 
+        <p>Twoje foldery</p>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="folder"></mat-icon>
+    </div>
+    <div class="add-folder">
+        <button mat-button><mat-icon class="add-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon></button>
+    </div>
+</div>
+<div class="folders">
+    <div *ngFor="let singleFolder of folders">
+        <app-folder [folder]="singleFolder"></app-folder>
+    </div>
+</div>

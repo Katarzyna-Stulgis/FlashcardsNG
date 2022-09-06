@@ -1,4 +1,17 @@
-<button (click)="initNewFolder()">Create new Folder</button>
+<mat-toolbar>
+  <button mat-button >Flashcards</button>
+  <button mat-button>Zestawy do nauki</button>
+  <button mat-button>Foldery</button>
+  <button mat-button>Pobierz fiszki</button>
+  <button mat-button [matMenuTriggerFor]="menu">Stwórz</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Folder</button>
+    <button mat-menu-item>Zestaw do nauki</button>
+  </mat-menu>
+</mat-toolbar>
+<app-folders></app-folders>
+
+<!-- <button (click)="initNewFolder()">Create new Folder</button>
 
 <table>
   <thead>
@@ -13,7 +26,8 @@
       <td>{{ folder.description }}</td>
       <td><button (click)="editFolder(folder)">Edit</button></td>
     </tr>
+    <tr><app-folder></app-folder></tr>
   </tbody>
 </table>
 
-<app-edit-folder [folder]="folderToEdit" (foldersUpdated)="updateFolderList($event)"></app-edit-folder>
+<app-folders [folder]="folderToEdit" (foldersUpdated)="updateFolderList($event)"></app-folders> -->

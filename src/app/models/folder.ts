@@ -2,5 +2,6 @@ export class Folder {
     folderId?= "";
     name = "";
     description?= "";
-    decks? = []
+    decks?= [];
+    userId = "";
 }
