@@ -1,12 +1,18 @@
 .info {
-    margin: 30px;
+    margin-left: 160px;
+    margin-right: 160px;
+    margin-top: 70px;
+    margin-bottom: 50px;
     padding: 20px;
-    background-color: #A6E9D5;
+    background-color: #80CBC4;
 }
 
 mat-icon {
     transform: scale(1.5);
     vertical-align: middle;
+}
+.info-folder{
+    margin-bottom: 40px;
 }
 
 .info-folder>p {
@@ -27,5 +33,8 @@ mat-icon {
 }
 
 .folders {
-    margin: 30px;
+    margin-left: 160px;
+    margin-right: 160px;
+    height: 620px;
+    overflow: auto;
 }

@@ -10,12 +10,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { FoldersComponent } from './components/folders/folders.component';
 import { FolderComponent } from './components/folders/folder/folder.component';
+import { EditFolderComponent } from './components/edit-folder/edit-folder.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FoldersComponent,
-    FolderComponent
+    FolderComponent,
+    EditFolderComponent
   ],
   imports: [
     BrowserModule,

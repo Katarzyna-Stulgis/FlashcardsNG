@@ -1,16 +1,21 @@
-<div *ngIf="folder">
-    <h2>{{ folder.name }}</h2>
-    <div>
-        Name:
-        <input [(ngModel)] = "folder.name" placeholder="Name"/>
-    </div>
-    <div>
-        Description:
-        <input [(ngModel)] = "folder.description" placeholder="Description"/>
-    </div>
+<div class="dialog">
+    <h1>Nowy folder</h1>
+    <form class="form">
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Nazwa </mat-label>
+            <input matInput [(ngModel)]="folder.name" placeholder="Nazwa Folderu" name="Nazwa">
+        </mat-form-field>
 
-    <button (click)="editFolder(folder)" *ngIf="folder.folderId">Update</button>
-    <button (click)="deleteFolder(folder)" *ngIf="folder.folderId">Delete</button>
-    <button (click)="addFolder(folder)" *ngIf="!folder.folderId">Add</button>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Opis</mat-label>
+            <textarea matInput [(ngModel)]="folder.description" placeholder="Opis..." name="Opis"></textarea>
+        </mat-form-field>
+    </form>
 
+    <div>
+        <div mat-dialog-actions>
+            <button mat-stroked-button color="primary" (click)="onNoClick()">Anuluj</button>
+            <button mat-raised-button (click)="AddFolder()" color="primary">Ok</button>
+        </div>
+    </div>
 </div>

@@ -1,0 +1,28 @@
+.dialog {
+    text-align: center;
+    width: max-content;
+}
+
+dialog>h1 {
+    text-align: center;
+}
+
+mat-form-field {
+    display: inline-block;
+}
+
+.form {
+    width: 650px;
+}
+
+textarea {
+    height: 100px;
+  }
+
+.full-width {
+    display: grid;
+}
+
+.mat-dialog-actions{
+    float: right;
+}

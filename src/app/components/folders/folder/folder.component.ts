@@ -1,3 +1,4 @@
+import { FolderService } from './../../../services/folder.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Folder } from 'src/app/models/folder';
 
@@ -9,7 +10,7 @@ import { Folder } from 'src/app/models/folder';
 export class FolderComponent implements OnInit {
   @Input() folder: Folder = {} as Folder;
 
-  constructor() { }
+  constructor(private folderService: FolderService) { }
 
   ngOnInit(): void {
   }

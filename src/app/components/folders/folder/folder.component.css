@@ -1,5 +1,5 @@
 .folder {
-    background-color: #D2F4EA;
+    background-color: #E0F2F1;
     border-radius: 3px;
     margin-bottom: 15px;
 }
@@ -8,8 +8,23 @@
     padding: 15px;
 }
 
-.col{
-    display: inline;
+.name{
+    font-weight: 500;
+    font-size: x-large;
+    width:250px; 
+    max-width:250px; 
+    display: inline-block;
+}
+
+.amount{
+    font-size: medium;
+    width:250px; 
+    max-width:250px; 
+    display: inline-block;
+}
+
+.action{
+    display: inline-block;
 }
 
 .folder-name{

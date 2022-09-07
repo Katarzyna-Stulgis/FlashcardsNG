@@ -16,9 +16,13 @@ export class FoldersComponent implements OnInit {
   constructor(private folderService: FolderService) { }
 
   ngOnInit(): void {
+    this.getFolder();
+  }
+
+  getFolder(){
     this.folderService
-      .getFolders()
-      .subscribe((result: Folder[]) => this.folders = result);
+    .getFolders()
+    .subscribe((result: Folder[]) => this.folders = result);
   }
 
 /*   addFolder(folder: Folder) {
