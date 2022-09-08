@@ -3,37 +3,16 @@
   <button mat-button>Zestawy do nauki</button>
   <button mat-button>Foldery</button>
   <button mat-button>Pobierz fiszki</button>
-  <button mat-button [matMenuTriggerFor]="menu">Stwórz  <mat-icon>arrow_drop_down</mat-icon></button>
+  <button mat-button [matMenuTriggerFor]="menu">Stwórz <mat-icon>arrow_drop_down</mat-icon></button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="openDialog()">
       <mat-icon class="add-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="folder"></mat-icon>
       Folder
     </button>
-    <button mat-menu-item >
+    <button mat-menu-item>
       <mat-icon class="add-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="description"></mat-icon>
       Zestaw do nauki
     </button>
   </mat-menu>
 </mat-toolbar>
-<app-folders></app-folders>
-
-<!-- <button (click)="initNewFolder()">Create new Folder</button>
-
-<table>
-  <thead>
-    <th>Id</th>
-    <th>Name</th>
-    <th>Description</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let folder of folders">
-      <td>{{ folder.folderId }}</td>
-      <td>{{ folder.name }}</td>
-      <td>{{ folder.description }}</td>
-      <td><button (click)="editFolder(folder)">Edit</button></td>
-    </tr>
-    <tr><app-folder></app-folder></tr>
-  </tbody>
-</table>
-
-<app-folders [folder]="folderToEdit" (foldersUpdated)="updateFolderList($event)"></app-folders> -->
+<router-outlet></router-outlet>

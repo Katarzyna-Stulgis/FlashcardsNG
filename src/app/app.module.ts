@@ -25,7 +25,7 @@ import { EditFolderComponent } from './components/edit-folder/edit-folder.compon
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    
+
     MaterialModule,
     FormsModule
   ],

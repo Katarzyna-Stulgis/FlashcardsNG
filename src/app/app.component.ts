@@ -25,26 +25,4 @@ export class AppComponent {
 
     });
   }
-  /*   folders: Folder[] = [];
-    folderToEdit?: Folder;
-  
-    constructor(private folderService: FolderService) { }
-  
-    ngOnInit(): void {
-      this.folderService
-        .getFolders()
-        .subscribe((result: Folder[]) => this.folders = result);
-    }
-  
-    updateFolderList(folders: Folder[]) {
-      this.folders = folders
-    }
-  
-    initNewFolder() {
-      this.folderToEdit = new Folder();
-    }
-  
-    editFolder(folder: Folder) {
-      this.folderToEdit = folder;
-    } */
 }

@@ -11,7 +11,6 @@ import { FolderService } from 'src/app/services/folder.service';
 export class EditFolderComponent implements OnInit {
   @Output() foldersUpdated = new EventEmitter<Folder[]>();
   folders: Folder[] = [];
-  // @ViewChild(FoldersComponent) foldersComponent: FoldersComponent ={} as FoldersComponent;
 
   constructor(
     public dialogRef: MatDialogRef<EditFolderComponent>,
@@ -35,12 +34,14 @@ export class EditFolderComponent implements OnInit {
       this.folderService
         .addFolder(this.folder)
         .subscribe((folders: Folder[]) => this.foldersUpdated.emit(folders));
-      // this.foldersComponent.ngOnInit();
-      //dodac czyszcenie input on lcikc
+      this.folder.name = '';
+      this.folder.description = '';
       this.dialogRef.close();
     }
   }
-  onNoClick(): void {
+  CloseDialog(): void {
+    this.folder.name = '';
+    this.folder.description = '';
     this.dialogRef.close();
   }
 
