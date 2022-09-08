@@ -11,13 +11,15 @@ import { MaterialModule } from './shared/material.module';
 import { FoldersComponent } from './components/folders/folders.component';
 import { FolderComponent } from './components/folders/folder/folder.component';
 import { EditFolderComponent } from './components/edit-folder/edit-folder.component';
+import { FolderDetailsComponent } from './components/folder-details/folder-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FoldersComponent,
     FolderComponent,
-    EditFolderComponent
+    EditFolderComponent,
+    FolderDetailsComponent
   ],
   imports: [
     BrowserModule,

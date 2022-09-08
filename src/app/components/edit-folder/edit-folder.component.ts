@@ -30,7 +30,7 @@ export class EditFolderComponent implements OnInit {
       console.log(this.folders);
       console.log(this.folder);
       this.folder.folderId = "00000000-0000-0000-0000-000000000000";
-      this.folder.userId = "e22e7101-058e-47cd-8d6f-66633d596fad";
+      this.folder.userId = "72eb5903-7dd5-4133-9f16-3f9fc7d84e87";
       this.folderService
         .addFolder(this.folder)
         .subscribe((folders: Folder[]) => this.foldersUpdated.emit(folders));
