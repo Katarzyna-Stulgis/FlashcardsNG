@@ -1,7 +1,7 @@
-export interface Folder{
+export interface Folder {
     folderId: string;
     name: string;
     description: string;
-    decks: [];
+    decks?: [];
     userId: string;
 }

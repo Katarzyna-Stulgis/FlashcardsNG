@@ -1,8 +1,7 @@
 import { EditFolderComponent } from './components/edit-folder/edit-folder.component';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Folder } from './models/folder';
-import { FolderService } from './services/folder.service';
+import { Folder } from 'src/app/interfaces/Folder';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +12,7 @@ export class AppComponent {
   title = 'FlashcardsNG';
   folder: Folder = {} as Folder;
 
-  constructor(public dialog: MatDialog){}
+  constructor(public dialog: MatDialog) { }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(EditFolderComponent, {
@@ -23,29 +22,29 @@ export class AppComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      
+
     });
   }
-/*   folders: Folder[] = [];
-  folderToEdit?: Folder;
-
-  constructor(private folderService: FolderService) { }
-
-  ngOnInit(): void {
-    this.folderService
-      .getFolders()
-      .subscribe((result: Folder[]) => this.folders = result);
-  }
-
-  updateFolderList(folders: Folder[]) {
-    this.folders = folders
-  }
-
-  initNewFolder() {
-    this.folderToEdit = new Folder();
-  }
-
-  editFolder(folder: Folder) {
-    this.folderToEdit = folder;
-  } */
+  /*   folders: Folder[] = [];
+    folderToEdit?: Folder;
+  
+    constructor(private folderService: FolderService) { }
+  
+    ngOnInit(): void {
+      this.folderService
+        .getFolders()
+        .subscribe((result: Folder[]) => this.folders = result);
+    }
+  
+    updateFolderList(folders: Folder[]) {
+      this.folders = folders
+    }
+  
+    initNewFolder() {
+      this.folderToEdit = new Folder();
+    }
+  
+    editFolder(folder: Folder) {
+      this.folderToEdit = folder;
+    } */
 }

@@ -1,9 +1,7 @@
-import { FoldersComponent } from './../folders/folders.component';
-import { Folder } from 'src/app/models/folder';
-import { Component, OnInit, Inject, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Folder } from 'src/app/interfaces/Folder';
+import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FolderService } from 'src/app/services/folder.service';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-edit-folder',
@@ -13,7 +11,7 @@ import { NgIf } from '@angular/common';
 export class EditFolderComponent implements OnInit {
   @Output() foldersUpdated = new EventEmitter<Folder[]>();
   folders: Folder[] = [];
- // @ViewChild(FoldersComponent) foldersComponent: FoldersComponent ={} as FoldersComponent;
+  // @ViewChild(FoldersComponent) foldersComponent: FoldersComponent ={} as FoldersComponent;
 
   constructor(
     public dialogRef: MatDialogRef<EditFolderComponent>,
@@ -37,8 +35,8 @@ export class EditFolderComponent implements OnInit {
       this.folderService
         .addFolder(this.folder)
         .subscribe((folders: Folder[]) => this.foldersUpdated.emit(folders));
-       // this.foldersComponent.ngOnInit();
-       //dodac czyszcenie input on lcikc
+      // this.foldersComponent.ngOnInit();
+      //dodac czyszcenie input on lcikc
       this.dialogRef.close();
     }
   }
