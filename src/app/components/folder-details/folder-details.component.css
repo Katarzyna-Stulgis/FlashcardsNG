@@ -1,0 +1,31 @@
+.info {
+    margin-left: 160px;
+    margin-right: 160px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: #80CBC4;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon {
+    transform: scale(1.5);
+    vertical-align: middle;
+}
+
+.info-folder{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.info>div {
+    font-size: x-large;
+}
+
+.info-folder>p {
+    padding-right: 25px;
+    margin: 0;
+}

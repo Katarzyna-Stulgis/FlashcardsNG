@@ -1,4 +1,4 @@
-export interface Folder {
+export interface IFolder {
     folderId: string;
     name: string;
     description: string;

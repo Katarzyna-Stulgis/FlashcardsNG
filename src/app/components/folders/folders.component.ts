@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Folder } from 'src/app/interfaces/Folder';
+import { IFolder } from 'src/app/interfaces/IFolder';
 import { FolderService } from './../../services/folder.service';
 
 @Component({
@@ -9,17 +9,17 @@ import { FolderService } from './../../services/folder.service';
 })
 export class FoldersComponent implements OnInit {
 
-  folders: Folder[] = [];
+  folders: IFolder[] = [];
 
   constructor(private folderService: FolderService) { }
 
   ngOnInit(): void {
-    this.getFolder();
+    this.getFolders();
   }
 
-  getFolder() {
+  getFolders() {
     this.folderService
       .getFolders()
-      .subscribe((result: Folder[]) => this.folders = result);
+      .subscribe((result: IFolder[]) => this.folders = result);
   }
 }

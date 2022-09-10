@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Folder } from 'src/app/interfaces/Folder';
+import { IFolder } from 'src/app/interfaces/IFolder';
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +12,23 @@ export class FolderService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getFolders(): Observable<Folder[]> {
-    return this.httpClient.get<Folder[]>(`${environment.apiUrl}/${this.url}`);
+  public getFolders(): Observable<IFolder[]> {
+    return this.httpClient.get<IFolder[]>(`${environment.apiUrl}/${this.url}`);
   }
 
-  public addFolder(folder: Folder): Observable<Folder[]> {
-    return this.httpClient.post<Folder[]>(`${environment.apiUrl}/${this.url}`, folder);
+  public getFolder(folderId: string): Observable<IFolder> {
+    return this.httpClient.get<IFolder>(`${environment.apiUrl}/${this.url}/${folderId}`);
   }
 
-  public editFolder(folder: Folder): Observable<Folder[]> {
-    return this.httpClient.put<Folder[]>(`${environment.apiUrl}/${this.url}/${folder.folderId}`, folder);
+  public addFolder(folder: IFolder): Observable<IFolder[]> {
+    return this.httpClient.post<IFolder[]>(`${environment.apiUrl}/${this.url}`, folder);
   }
 
-  public deleteFolder(folder: Folder): Observable<Folder[]> {
-    return this.httpClient.delete<Folder[]>(`${environment.apiUrl}/${this.url}/${folder.folderId}`);
+  public editFolder(folder: IFolder): Observable<IFolder[]> {
+    return this.httpClient.put<IFolder[]>(`${environment.apiUrl}/${this.url}/${folder.folderId}`, folder);
+  }
+
+  public deleteFolder(folder: IFolder): Observable<IFolder[]> {
+    return this.httpClient.delete<IFolder[]>(`${environment.apiUrl}/${this.url}/${folder.folderId}`);
   }
 }

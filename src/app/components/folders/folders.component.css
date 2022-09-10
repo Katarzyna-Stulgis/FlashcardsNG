@@ -11,7 +11,8 @@ mat-icon {
     transform: scale(1.5);
     vertical-align: middle;
 }
-.info-folder{
+
+.info-folder {
     margin-bottom: 40px;
 }
 
@@ -37,4 +38,20 @@ mat-icon {
     margin-right: 160px;
     height: 620px;
     overflow: auto;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
+
+a:active {
+    color: black;
 }

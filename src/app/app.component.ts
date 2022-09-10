@@ -1,7 +1,7 @@
 import { EditFolderComponent } from './components/edit-folder/edit-folder.component';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Folder } from 'src/app/interfaces/Folder';
+import { IFolder } from 'src/app/interfaces/IFolder';
 
 @Component({
   selector: 'app-root',
@@ -10,14 +10,14 @@ import { Folder } from 'src/app/interfaces/Folder';
 })
 export class AppComponent {
   title = 'FlashcardsNG';
-  folder: Folder = {} as Folder;
+  folder: IFolder = {} as IFolder;
 
   constructor(public dialog: MatDialog) { }
 
-  openDialog(): void {
+  openDialog(action: string): void {
     const dialogRef = this.dialog.open(EditFolderComponent, {
       width: 'auto',
-      data: this.folder,
+      data: { folder: this.folder, action: action },
     });
 
     dialogRef.afterClosed().subscribe(result => {
