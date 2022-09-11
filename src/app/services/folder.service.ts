@@ -20,15 +20,15 @@ export class FolderService {
     return this.httpClient.get<IFolder>(`${environment.apiUrl}/${this.url}/${folderId}`);
   }
 
-  public addFolder(folder: IFolder): Observable<IFolder[]> {
-    return this.httpClient.post<IFolder[]>(`${environment.apiUrl}/${this.url}`, folder);
+  public addFolder(folder: IFolder): Observable<IFolder> {
+    return this.httpClient.post<IFolder>(`${environment.apiUrl}/${this.url}`, folder);
   }
 
-  public editFolder(folder: IFolder): Observable<IFolder[]> {
-    return this.httpClient.put<IFolder[]>(`${environment.apiUrl}/${this.url}/${folder.folderId}`, folder);
+  public editFolder(folder: IFolder): Observable<IFolder> {
+    return this.httpClient.put<IFolder>(`${environment.apiUrl}/${this.url}/${folder.folderId}`, folder);
   }
 
-  public deleteFolder(folder: IFolder): Observable<IFolder[]> {
-    return this.httpClient.delete<IFolder[]>(`${environment.apiUrl}/${this.url}/${folder.folderId}`);
+  public deleteFolder(folderId: string): Observable<IFolder> {
+    return this.httpClient.delete<IFolder>(`${environment.apiUrl}/${this.url}/${folderId}`);
   }
 }

@@ -1,0 +1,13 @@
+<div class="dialog">
+    <h1>Usuwanie folderu</h1>
+    <p>
+        Czy na pewno chcesz usunąć ten folder?
+        Zestawy znajdujące się w tym folderze nie zostaną usunięte.
+    </p>
+    <div>
+        <div mat-dialog-actions>
+            <button mat-stroked-button color="primary" (click)="CloseDialog()">Anuluj</button>
+            <button mat-raised-button (click)="Delete()" color="primary">Usuń</button>
+        </div>
+    </div>
+</div>

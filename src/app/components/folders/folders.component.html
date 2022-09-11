@@ -6,7 +6,7 @@
 </div>
 <div class="folders">
     <div *ngFor="let singleFolder of folders">
-        <a [routerLink]="['/folders',  singleFolder.folderId]" [state]="{ folderId:singleFolder.folderId}">
+        <a [routerLink]="['/folders',  singleFolder.folderId]">
             <app-folder [folder]="singleFolder"></app-folder>
         </a>
     </div>

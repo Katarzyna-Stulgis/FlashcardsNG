@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FolderService } from 'src/app/services/folder.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditFolderComponent } from '../edit-folder/edit-folder.component';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { DeleteFolderComponent } from '../delete-folder/delete-folder.component';
 
 @Component({
   selector: 'app-folder-details',
@@ -11,16 +14,20 @@ import { EditFolderComponent } from '../edit-folder/edit-folder.component';
 })
 export class FolderDetailsComponent implements OnInit {
   folder: IFolder = {} as IFolder;
+  private routeSub: Subscription = {} as Subscription;
+  private folderId: string = "";
 
   constructor(
     private folderService: FolderService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    
-    this.getFolder(history.state.folderId);
-    console.log("history state: " + history.state.folderId);
-    console.log({ folder: this.folder });
+    this.routeSub = this.route.params.subscribe(params => {
+      this.folderId = params['id']
+    });
+
+    this.getFolder(this.folderId);
   }
 
   getFolder(folderId: string) {
@@ -39,6 +46,14 @@ export class FolderDetailsComponent implements OnInit {
     });
   }
 
-  deleteFolder() { }
+  deleteFolder() {
+    const dialogRef = this.dialog.open(DeleteFolderComponent, {
+      width: 'auto',
+      data: { folder: this.folder },
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 
 }

@@ -12,6 +12,7 @@ import { FoldersComponent } from './components/folders/folders.component';
 import { FolderComponent } from './components/folders/folder/folder.component';
 import { EditFolderComponent } from './components/edit-folder/edit-folder.component';
 import { FolderDetailsComponent } from './components/folder-details/folder-details.component';
+import { DeleteFolderComponent } from './components/delete-folder/delete-folder.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FolderDetailsComponent } from './components/folder-details/folder-detai
     FoldersComponent,
     FolderComponent,
     EditFolderComponent,
-    FolderDetailsComponent
+    FolderDetailsComponent,
+    DeleteFolderComponent
   ],
   imports: [
     BrowserModule,

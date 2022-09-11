@@ -3,6 +3,7 @@ import { IFolder } from 'src/app/interfaces/IFolder';
 import { Component, OnInit, Inject, Output, EventEmitter, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FolderService } from 'src/app/services/folder.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-folder',
@@ -10,23 +11,33 @@ import { FolderService } from 'src/app/services/folder.service';
   styleUrls: ['./edit-folder.component.css']
 })
 export class EditFolderComponent implements OnInit {
-  @Output() foldersUpdated = new EventEmitter<IFolder[]>();
+  @Output() foldersUpdated = new EventEmitter<IFolder>();
   folderTemp: IFolder = {} as IFolder;
+  actionName: string = "";
 
   constructor(
     public dialogRef: MatDialogRef<EditFolderComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IDialogData,
-    private folderService: FolderService
+    private folderService: FolderService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.getFolder(this.data.folder.folderId);
+    switch (this.data.action) {
+      case 'add':
+        this.actionName = 'Nowy Folder';
+        break;
+      case 'edit':
+        this.getFolder(this.data.folder.folderId);
+        this.actionName = 'Edycja Folderu'
+        break;
+    }
   }
 
   SaveFolder() {
     switch (this.data.action) {
       case 'add':
-        this.AddFolder()
+        this.AddFolder();
         window.location.reload();
         break;
       case 'edit':
@@ -63,7 +74,7 @@ export class EditFolderComponent implements OnInit {
       this.data.folder.userId = "72eb5903-7dd5-4133-9f16-3f9fc7d84e87";
       this.folderService
         .addFolder(this.data.folder)
-        .subscribe((folders: IFolder[]) => this.foldersUpdated.emit(folders));
+        .subscribe((folders: IFolder) => this.foldersUpdated.emit(folders));
       this.data.folder.name = '';
       this.data.folder.description = '';
     }
@@ -72,6 +83,6 @@ export class EditFolderComponent implements OnInit {
   EditFolder() {
     this.folderService
       .editFolder(this.data.folder)
-      .subscribe((folders: IFolder[]) => this.foldersUpdated.emit(folders));
+      .subscribe((folders: IFolder) => this.foldersUpdated.emit(folders));
   }
 }
