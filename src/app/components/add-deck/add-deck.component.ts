@@ -10,6 +10,7 @@ export class AddDeckComponent implements OnInit {
   visibilityTypes: string[] = ['Publiczny', 'Prywatny'];
   selectedType: string = '';
   deck: IDeck = {} as IDeck;
+  public loadComponent: any[] = [,,,];
 
   constructor() { }
 
@@ -17,15 +18,15 @@ export class AddDeckComponent implements OnInit {
   }
 
   addFlashcardComponent() {
-    //dodawanie komponentu fiszka do widoku
+    this.loadComponent.push(1);
   }
   getvisibilityType() {
     switch (this.selectedType) {
       case 'Publiczny':
         this.deck.visibilityType = 0;
         break;
-        case 'Prywatny':
-          this.deck.visibilityType = 1;
+      case 'Prywatny':
+        this.deck.visibilityType = 1;
         break;
     }
   }
