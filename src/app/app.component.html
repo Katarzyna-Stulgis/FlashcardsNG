@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
   <button mat-button>Flashcards</button>
-  <button mat-button>Zestawy do nauki</button>
-  <button mat-button [routerLink]="['/folders']">Foldery</button>
+  <button mat-button>Twoje zestawy do nauki</button>
+  <button mat-button [routerLink]="['/folders']">Twoje Foldery</button>
   <button mat-button>Pobierz fiszki</button>
   <button mat-button [matMenuTriggerFor]="menu">Stwórz <mat-icon>arrow_drop_down</mat-icon></button>
   <mat-menu #menu="matMenu">
@@ -9,7 +9,7 @@
       <mat-icon class="add-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="folder"></mat-icon>
       Folder
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item [routerLink]="['/decks/add-deck']">
       <mat-icon class="add-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="description"></mat-icon>
       Zestaw do nauki
     </button>

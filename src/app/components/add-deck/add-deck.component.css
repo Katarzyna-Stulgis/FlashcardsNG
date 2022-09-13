@@ -1,0 +1,80 @@
+.info {
+    margin-left: 160px;
+    margin-right: 160px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: #80CBC4;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.info>div {
+    font-size: x-large;
+    align-items: center;
+    display: flex;
+}
+
+.form {
+    width: 50%;
+}
+
+.full-width {
+    display: grid;
+    width: 100%;
+}
+
+#radio-group-label{
+    padding-left: 100px;
+}
+
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    padding-left: 100px;
+}
+
+.example-radio-button {
+    margin: 5px;
+}
+
+.data {
+    display: flex;
+    margin-left: 160px;
+    margin-right: 160px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+.flashcards{
+    margin-left: 160px;
+    margin-right: 160px;
+}
+
+#add-flashcard{
+    margin-top: 60px;
+    text-align: center;
+}
+
+#add-flashcard-button{
+
+    text-decoration-line: underline;
+    font-size: large;
+}
+
+#add-deck{
+    margin-left: 160px;
+    margin-right: 160px;
+    float: right;
+}
+
+#add-deck-button{
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

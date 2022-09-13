@@ -1,0 +1,23 @@
+<div id="flashcard">
+    <table class="example-full-width" cellspacing="0">
+        <tr>
+            <td>
+                <mat-form-field class="example-full-width input-flashcard" appearance="fill">
+                    <mat-label>Pojęcie</mat-label>
+                    <input matInput [(ngModel)]="flashcard.question">
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field class="example-full-width input-flashcard" appearance="fill">
+                    <mat-label>Definicja</mat-label>
+                    <input matInput [(ngModel)]="flashcard.answer">
+                </mat-form-field>
+            </td>
+            <td id="delete-td">
+                <button mat-icon-button id="delete-button" (click)="deleteFlashcard()">
+                    <mat-icon>delete_outline</mat-icon>
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
