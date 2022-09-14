@@ -1,9 +1,8 @@
 import { IFlashcard } from './IFlashcard';
 export interface IDeck {
     deckId: string;
-    name: string;
+    title: string;
     description: string;
-    visibilityType: number;
+    flashcardAmount: number;
     flashcards?: IFlashcard[];
-    users: []
 }

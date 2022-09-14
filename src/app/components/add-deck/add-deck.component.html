@@ -12,7 +12,7 @@
         <form class="form">
             <mat-form-field class="full-width" appearance="fill">
                 <mat-label>Nazwa </mat-label>
-                <input matInput placeholder="Nazwa zestawu" name="Nazwa" [(ngModel)]="deck.name">
+                <input matInput placeholder="Nazwa zestawu" name="Nazwa" [(ngModel)]="deck.title">
             </mat-form-field>
 
             <mat-form-field class="full-width" appearance="fill">
@@ -20,7 +20,7 @@
                 <textarea matInput placeholder="Opis..." name="Opis" [(ngModel)]="deck.description"></textarea>
             </mat-form-field>
         </form>
-        <div class="visibility-radio-buttons">
+<!--         <div class="visibility-radio-buttons">
             <label id="radio-group-label">Widoczność:</label>
             <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" color="primary"
                 [(ngModel)]="selectedType">
@@ -28,11 +28,15 @@
                     {{type}}
                 </mat-radio-button>
             </mat-radio-group>
-        </div>
+        </div> -->
     </div>
 
-    <div class="flashcards"  *ngFor="let conponent of loadComponent">
-        <app-add-flashcard></app-add-flashcard>
+    <div class="flashcards" >
+        <ng-container #container *ngFor="let component of loadComponent ; index as i">
+            <app-add-flashcard></app-add-flashcard>
+            <button (click)="removeComponent(i)">remove {{i}}</button>
+        </ng-container>
+
     </div>
 
     <div id="add-flashcard">

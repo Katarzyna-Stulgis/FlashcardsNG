@@ -1,0 +1,13 @@
+<div class="info">
+    <div class="info-deck">
+        <p>Twoje zestawy do nauki</p>
+        <mat-icon aria-hidden="false" fontIcon="filter_none"></mat-icon>
+    </div>
+</div>
+<div class="decks">
+    <div *ngFor="let singleDeck of decks">
+        <a [routerLink]="['/decks', singleDeck.deckId]">
+            <app-deck [deck]="singleDeck" ></app-deck>
+        </a>
+    </div>
+</div>

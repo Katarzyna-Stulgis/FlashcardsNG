@@ -15,6 +15,8 @@ import { FolderDetailsComponent } from './components/folder-details/folder-detai
 import { DeleteFolderComponent } from './components/delete-folder/delete-folder.component';
 import { AddDeckComponent } from './components/add-deck/add-deck.component';
 import { AddFlashcardComponent } from './components/add-deck/add-flashcard/add-flashcard.component';
+import { DecksComponent } from './components/decks/decks.component';
+import { DeckComponent } from './components/decks/deck/deck.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { AddFlashcardComponent } from './components/add-deck/add-flashcard/add-f
     FolderDetailsComponent,
     DeleteFolderComponent,
     AddDeckComponent,
-    AddFlashcardComponent
+    AddFlashcardComponent,
+    DecksComponent,
+    DeckComponent
   ],
   imports: [
     BrowserModule,

@@ -8,15 +8,15 @@
 }
 
 mat-icon {
-    transform: scale(1.5);
+    transform: scale(1.2);
     vertical-align: middle;
 }
 
-.info-folder {
+.info-deck {
     margin-bottom: 40px;
 }
 
-.info-folder>p {
+.info-deck>p {
     display: inline-block;
     padding-right: 25px;
     margin: 0;
@@ -28,7 +28,7 @@ mat-icon {
     justify-content: center;
 }
 
-.folders {
+.decks {
     margin-left: 160px;
     margin-right: 160px;
     height: 620px;

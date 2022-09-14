@@ -1,5 +1,6 @@
+import { AddFlashcardComponent } from './add-flashcard/add-flashcard.component';
 import { IDeck } from './../../interfaces/IDeck';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'app-add-deck',
@@ -7,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-deck.component.css']
 })
 export class AddDeckComponent implements OnInit {
-  visibilityTypes: string[] = ['Publiczny', 'Prywatny'];
+ // visibilityTypes: string[] = ['Publiczny', 'Prywatny'];
   selectedType: string = '';
   deck: IDeck = {} as IDeck;
-  public loadComponent: any[] = [,,,];
+  public loadComponent: any[] = [];
 
-  constructor() { }
+  @ViewChild('container', {read:ViewContainerRef})
+  container!:ViewContainerRef;
+  
+
+  constructor() {
+   }
 
   ngOnInit(): void {
   }
@@ -20,7 +26,12 @@ export class AddDeckComponent implements OnInit {
   addFlashcardComponent() {
     this.loadComponent.push(1);
   }
-  getvisibilityType() {
+
+  removeComponent(componentIndex:number){
+    this.loadComponent.splice(componentIndex,1);
+  } 
+
+ /*  getvisibilityType() {
     switch (this.selectedType) {
       case 'Publiczny':
         this.deck.visibilityType = 0;
@@ -29,11 +40,11 @@ export class AddDeckComponent implements OnInit {
         this.deck.visibilityType = 1;
         break;
     }
-  }
+  } */
 
   SaveDeck() {
     console.log(this.selectedType);
-    this.getvisibilityType();
+/*     this.getvisibilityType(); */
 
     console.log(this.deck);
 
