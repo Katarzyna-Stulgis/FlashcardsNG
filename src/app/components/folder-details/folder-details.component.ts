@@ -20,19 +20,20 @@ export class FolderDetailsComponent implements OnInit {
   constructor(
     private folderService: FolderService,
     public dialog: MatDialog,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.routeSub = this.route.params.subscribe(params => {
       this.folderId = params['id']
     });
 
-    this.getFolder(this.folderId);
+    this.getFolder();
   }
 
-  getFolder(folderId: string) {
+  getFolder() {
     this.folderService
-      .getFolder(folderId)
+      .getFolder(this.folderId)
       .subscribe((result: IFolder) => this.folder = result);
   }
 

@@ -1,9 +1,8 @@
-import { IDialogData } from './../../interfaces/IDialogData';
 import { IFolder } from 'src/app/interfaces/IFolder';
 import { Component, OnInit, Inject, Output, EventEmitter, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FolderService } from 'src/app/services/folder.service';
-import { Router } from '@angular/router';
+import { IDialogFolderData } from 'src/app/interfaces/IDialogFolderData';
 
 @Component({
   selector: 'app-edit-folder',
@@ -17,9 +16,8 @@ export class EditFolderComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<EditFolderComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: IDialogData,
-    private folderService: FolderService,
-    private router: Router
+    @Inject(MAT_DIALOG_DATA) public data: IDialogFolderData,
+    private folderService: FolderService
   ) { }
 
   ngOnInit(): void {
@@ -52,7 +50,6 @@ export class EditFolderComponent implements OnInit {
       case 'add':
         this.data.folder.name = '';
         this.data.folder.description = '';
-        this.dialogRef.close();
         break;
       case 'edit':
         this.data.folder.name = this.folderTemp.name;
@@ -83,6 +80,6 @@ export class EditFolderComponent implements OnInit {
   EditFolder() {
     this.folderService
       .editFolder(this.data.folder)
-      .subscribe((folders: IFolder) => this.foldersUpdated.emit(folders));
+      .subscribe((folder: IFolder) => this.foldersUpdated.emit(folder));
   }
 }

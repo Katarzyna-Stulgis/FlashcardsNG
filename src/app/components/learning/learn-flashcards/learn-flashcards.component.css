@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 360px;
+    margin-right: 360px;
+}
+
+mat-progress-bar {
+    margin-top: 40px;
+    margin-left: 360px;
+    margin-right: 360px;
+    width: auto;
+    margin-bottom: 150px;
+}
+
+#flashcard {
+    background-color: #B2DFDB;
+    border-color: #00897B;
+    border-style: solid;
+    border-radius: 15px;
+    
+    width: min-content;
+
+    padding-top: 140px;
+    padding-bottom: 140px;
+    padding-left: 300px;
+    padding-right: 300px;
+
+    text-align: center;
+}
+
+span {
+    font-size: xx-large;
+    font-weight: 500;
+}
+
+.buttons{
+    background-color: #E0F2F1;
+    margin-top: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

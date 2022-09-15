@@ -28,7 +28,7 @@ export class DeckService {
     return this.httpClient.put<IDeck>(`${environment.apiUrl}/${this.url}/${deck.deckId}`, deck);
   }
 
-  public deleteDeck(folderId: string): Observable<IDeck> {
-    return this.httpClient.delete<IDeck>(`${environment.apiUrl}/${this.url}/${folderId}`);
+  public deleteDeck(deckId: string): Observable<IDeck> {
+    return this.httpClient.delete<IDeck>(`${environment.apiUrl}/${this.url}/${deckId}`);
   }
 }

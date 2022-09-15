@@ -1,0 +1,57 @@
+.info {
+    margin-left: 160px;
+    margin-right: 160px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: #80CBC4;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon {
+    transform: scale(1.2);
+    vertical-align: middle;
+}
+
+.info-deck{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.info>div {
+    font-size: x-large;
+}
+
+.info-deck>p {
+    padding-right: 25px;
+    margin: 0;
+}
+
+.flashcards{
+    margin-left: 160px;
+    margin-right: 160px;
+    max-height: 620px;
+    overflow: auto;
+}
+
+.info-button{
+    margin-right: 15px;
+}
+
+#add-edit-flashcards{
+    margin-left: 160px;
+    margin-right: 160px;
+    text-align: center;
+}
+
+#add-edit-flashcards-button{
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

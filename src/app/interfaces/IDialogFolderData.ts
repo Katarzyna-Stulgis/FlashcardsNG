@@ -1,6 +1,6 @@
 import { IFolder } from './IFolder';
 
-export interface IDialogData {
+export interface IDialogFolderData {
     folder: IFolder;
     action: string;
 }

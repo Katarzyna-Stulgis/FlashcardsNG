@@ -1,0 +1,54 @@
+<div class="info">
+    <div class="info-deck">
+        <p>{{deck.title}}</p>
+        <mat-icon class="icon" aria-hidden="false" fontIcon="filter_none">
+        </mat-icon>
+    </div>
+    <div>
+        <button class="info-button" mat-raised-button color="primary" [routerLink]="['/decks', deckId,'start']"> Start </button>
+
+        <button class="info-button" mat-raised-button color="primary" [matMenuTriggerFor]="menu">Test <mat-icon>
+                arrow_drop_down</mat-icon></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <mat-icon class="add-icon" fontIcon="lock_open">
+                </mat-icon>
+                Test otwarty
+            </button>
+            <button mat-menu-item>
+                <mat-icon class="add-icon" fontIcon="lock">
+                </mat-icon>
+                Test zamknięty
+            </button>
+        </mat-menu>
+
+        <button class="info-button" mat-icon-button [routerLink]="['/decks/add-deck']">
+            <mat-icon class="icon">edit</mat-icon>
+        </button>
+
+        <button class="menu" mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon class="icon">more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <mat-icon fontIcon="edit"></mat-icon>
+                <span>Edytuj</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon fontIcon="delete"></mat-icon>
+                <span>Usuń</span>
+            </button>
+        </mat-menu>
+    </div>
+</div>
+<div class="flashcards">
+    <div *ngFor="let singleFlashcard of deck.flashcards">
+        <app-deck-flashcard [flashcard]="singleFlashcard" [deckId]="deckId"></app-deck-flashcard>
+    </div>
+</div>
+
+<div id="add-edit-flashcards">
+    <button id="add-edit-flashcards-button" mat-raised-button color="primary" [routerLink]="['/decks/add-deck']">Dodaj
+        lub usuń
+        pojęcia</button>
+</div>

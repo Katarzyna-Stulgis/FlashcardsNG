@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { IDialogData } from 'src/app/interfaces/IDialogData';
+import { IDialogFolderData } from 'src/app/interfaces/IDialogFolderData';
 import { IFolder } from 'src/app/interfaces/IFolder';
 import { FolderService } from 'src/app/services/folder.service';
 import { EditFolderComponent } from '../edit-folder/edit-folder.component';
@@ -16,7 +16,7 @@ export class DeleteFolderComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<EditFolderComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: IDialogData,
+    @Inject(MAT_DIALOG_DATA) public data: IDialogFolderData,
     private folderService: FolderService,
     private router: Router
   ) { }

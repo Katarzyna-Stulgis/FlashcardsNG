@@ -17,6 +17,10 @@ import { AddDeckComponent } from './components/add-deck/add-deck.component';
 import { AddFlashcardComponent } from './components/add-deck/add-flashcard/add-flashcard.component';
 import { DecksComponent } from './components/decks/decks.component';
 import { DeckComponent } from './components/decks/deck/deck.component';
+import { DeckDetailsComponent } from './components/deck-details/deck-details.component';
+import { DeckFlashcardComponent } from './components/deck-details/deck-flashcard/deck-flashcard.component';
+import { EditFlashcardComponent } from './components/edit-flashcard/edit-flashcard.component';
+import { LearnFlashcardsComponent } from './components/learning/learn-flashcards/learn-flashcards.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { DeckComponent } from './components/decks/deck/deck.component';
     AddDeckComponent,
     AddFlashcardComponent,
     DecksComponent,
-    DeckComponent
+    DeckComponent,
+    DeckDetailsComponent,
+    DeckFlashcardComponent,
+    EditFlashcardComponent,
+    LearnFlashcardsComponent
   ],
   imports: [
     BrowserModule,
