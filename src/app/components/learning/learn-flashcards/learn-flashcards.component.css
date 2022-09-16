@@ -12,6 +12,8 @@ mat-progress-bar {
     margin-right: 360px;
     width: auto;
     margin-bottom: 150px;
+    height: 12px;
+    border-radius: 15px;
 }
 
 #flashcard {
@@ -19,26 +21,58 @@ mat-progress-bar {
     border-color: #00897B;
     border-style: solid;
     border-radius: 15px;
-    
-    width: min-content;
 
+    width: 650px;
+    height: 300px;
+
+
+    /* 
     padding-top: 140px;
     padding-bottom: 140px;
     padding-left: 300px;
-    padding-right: 300px;
-
+    padding-right: 300px; */
     text-align: center;
+    display: grid;
+    align-items: center;
+
 }
 
-span {
+#current-flashcard {
     font-size: xx-large;
     font-weight: 500;
 }
 
-.buttons{
+.flashcard-number{
+    font-size: medium;
+    vertical-align: middle;
+    width: max-content;
+}
+
+.buttons {
     background-color: #E0F2F1;
     margin-top: 150px;
+    width: 600px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    padding: 10px 5px;
+    border-radius: 15px;
+}
+
+.navigate-icon {
+    transform: scale(2);
+    vertical-align: middle;
+}
+
+.action-icon {
+    transform: scale(1.5);
+    vertical-align: middle;
+}
+
+.flashcard-button {
+    all: unset
+}
+
+.flashcard-button:hover {
+    filter: brightness(85%);
+    cursor: pointer;
 }

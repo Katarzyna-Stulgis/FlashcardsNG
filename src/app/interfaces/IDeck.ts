@@ -4,5 +4,5 @@ export interface IDeck {
     title: string;
     description: string;
     flashcardAmount: number;
-    flashcards?: IFlashcard[];
+    flashcards: IFlashcard[];
 }

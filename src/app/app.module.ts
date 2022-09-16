@@ -21,6 +21,7 @@ import { DeckDetailsComponent } from './components/deck-details/deck-details.com
 import { DeckFlashcardComponent } from './components/deck-details/deck-flashcard/deck-flashcard.component';
 import { EditFlashcardComponent } from './components/edit-flashcard/edit-flashcard.component';
 import { LearnFlashcardsComponent } from './components/learning/learn-flashcards/learn-flashcards.component';
+import { OpenTestComponent } from './components/learning/open-test/open-test.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { LearnFlashcardsComponent } from './components/learning/learn-flashcards
     DeckDetailsComponent,
     DeckFlashcardComponent,
     EditFlashcardComponent,
-    LearnFlashcardsComponent
+    LearnFlashcardsComponent,
+    OpenTestComponent
   ],
   imports: [
     BrowserModule,

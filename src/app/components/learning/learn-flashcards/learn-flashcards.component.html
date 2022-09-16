@@ -1,22 +1,30 @@
 <div>
-    <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
+    <mat-progress-bar mode="determinate" value={{progressBarValue}}></mat-progress-bar>
+
     <div class="container">
-        <div id="flashcard">
-            <span>fiszka</span>
-        </div>
+        <button class="flashcard-button" (click)="ReverseFlashcard()">
+            <div id="flashcard">
+                <span id="current-flashcard">{{currentFlashcard}}</span>
+            </div>
+        </button>
     </div>
-    <div class="container" >
+
+    <div class="container">
         <div class="buttons">
             <button mat-icon-button>
-                <mat-icon>shuffle</mat-icon>
-            </button><button mat-icon-button>
-                <mat-icon>navigate_before</mat-icon>
+                <mat-icon class="action-icon" (click)="Shuffle()">shuffle</mat-icon>
             </button>
-            <button mat-icon-button>
-                <mat-icon>navigate_next</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>edit</mat-icon>
+            <div>
+                <button mat-icon-button class="navigate-button" (click)="Previous()">
+                    <mat-icon class="navigate-icon">navigate_before</mat-icon>
+                </button>
+                <span class="flashcard-number">{{flashcardNumber}}</span>
+                <button mat-icon-button class="navigate-button" (click)="Next()">
+                    <mat-icon class="navigate-icon">navigate_next</mat-icon>
+                </button>
+            </div>
+            <button mat-icon-button (click)="openDialog()">
+                <mat-icon class="action-icon">edit</mat-icon>
             </button>
         </div>
     </div>

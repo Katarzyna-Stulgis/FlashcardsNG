@@ -1,3 +1,4 @@
+import { OpenTestComponent } from './components/learning/open-test/open-test.component';
 import { LearnFlashcardsComponent } from './components/learning/learn-flashcards/learn-flashcards.component';
 import { DeckDetailsComponent } from './components/deck-details/deck-details.component';
 import { DecksComponent } from './components/decks/decks.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'decks/add-deck', component: AddDeckComponent },
   { path: 'decks/:id', component: DeckDetailsComponent },
   { path: 'decks/:id/start', component: LearnFlashcardsComponent },
+  { path: 'decks/:id/open-test', component: OpenTestComponent },
 ];
 
 @NgModule({

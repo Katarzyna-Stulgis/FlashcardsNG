@@ -5,12 +5,19 @@
         </mat-icon>
     </div>
     <div>
-        <button class="info-button" mat-raised-button color="primary" [routerLink]="['/decks', deckId,'start']"> Start </button>
+        <button class="info-button" mat-raised-button color="primary" [routerLink]="['/decks', deckId,'start']"
+            [disabled]="deck.flashcardAmount<1">
+            Start
+        </button>
 
-        <button class="info-button" mat-raised-button color="primary" [matMenuTriggerFor]="menu">Test <mat-icon>
-                arrow_drop_down</mat-icon></button>
+        <button class="info-button" mat-raised-button color="primary" [matMenuTriggerFor]="menu" [disabled]="deck.flashcardAmount<1">
+            Test
+            <mat-icon>
+                arrow_drop_down
+            </mat-icon>
+        </button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item>
+            <button mat-menu-item [routerLink]="['/decks', deckId,'open-test']">
                 <mat-icon class="add-icon" fontIcon="lock_open">
                 </mat-icon>
                 Test otwarty
