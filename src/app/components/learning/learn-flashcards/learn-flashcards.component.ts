@@ -19,7 +19,6 @@ export class LearnFlashcardsComponent implements OnInit {
   deckId: string = "";
   private routeSub: Subscription = {} as Subscription;
   flashcards: IFlashcard[] | undefined = [];
-  shuffledflashcards: IFlashcard[] | undefined = [];
   currentFlashcard: string | undefined = "";
   iterator: number = 0;
   flashcardNumber: string = "";
@@ -47,7 +46,6 @@ export class LearnFlashcardsComponent implements OnInit {
         this.flashcardNumber = this.iterator + 1 + " / " + this.flashcards?.length!
         this.progressBarValue = ((this.iterator + 1) / this.flashcards?.length!) * 100
       });
-
   }
 
   getDeck() {

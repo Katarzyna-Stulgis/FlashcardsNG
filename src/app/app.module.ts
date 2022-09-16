@@ -22,6 +22,8 @@ import { DeckFlashcardComponent } from './components/deck-details/deck-flashcard
 import { EditFlashcardComponent } from './components/edit-flashcard/edit-flashcard.component';
 import { LearnFlashcardsComponent } from './components/learning/learn-flashcards/learn-flashcards.component';
 import { OpenTestComponent } from './components/learning/open-test/open-test.component';
+import { TestResultsComponent } from './components/learning/test-results/test-results.component';
+import { TestAnswersComponent } from './components/learning/test-results/test-answers/test-answers.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { OpenTestComponent } from './components/learning/open-test/open-test.com
     DeckFlashcardComponent,
     EditFlashcardComponent,
     LearnFlashcardsComponent,
-    OpenTestComponent
+    OpenTestComponent,
+    TestResultsComponent,
+    TestAnswersComponent
   ],
   imports: [
     BrowserModule,

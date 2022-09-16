@@ -1,0 +1,27 @@
+#answer-container{
+    background-color: #E0F2F1;
+    display: grid;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#question{
+font-size: medium;
+}
+
+#answer-name{
+    font-weight: bold;
+}
+
+#answer{
+
+}
+
+#correct-answer-container{
+    background-color: #C8E6C9;
+    border-radius: 10px;
+    padding: 5px;
+
+    margin-bottom: 20px;
+}
