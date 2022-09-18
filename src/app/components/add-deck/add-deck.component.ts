@@ -1,6 +1,8 @@
+import { IFlashcard } from './../../interfaces/IFlashcard';
 import { AddFlashcardComponent } from './add-flashcard/add-flashcard.component';
-import { IDeck } from './../../interfaces/IDeck';
-import { Component, ElementRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ComponentFactoryResolver, ComponentRef, EventEmitter, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core';
+import { IDeck } from 'src/app/interfaces/IDeck';
+import { DeckService } from 'src/app/services/deck.service';
 
 @Component({
   selector: 'app-add-deck',
@@ -8,46 +10,70 @@ import { Component, ElementRef, OnInit, ViewChild, ViewContainerRef } from '@ang
   styleUrls: ['./add-deck.component.css']
 })
 export class AddDeckComponent implements OnInit {
- // visibilityTypes: string[] = ['Publiczny', 'Prywatny'];
-  selectedType: string = '';
+  @ViewChild("viewContainerRef", { read: ViewContainerRef })
+  VCR: ViewContainerRef = {} as ViewContainerRef;
+
+  @Output() decksUpdated = new EventEmitter<IDeck>();
+
+  child_unique_key: number = 0;
+  componentsReferences = Array<ComponentRef<AddFlashcardComponent>>()
+
   deck: IDeck = {} as IDeck;
-  public loadComponent: any[] = [];
+  flashcards: IFlashcard[] = []
 
-  @ViewChild('container', {read:ViewContainerRef})
-  container!:ViewContainerRef;
-  
-
-  constructor() {
-   }
+  constructor(
+    private CFR: ComponentFactoryResolver,
+    private deckService: DeckService
+    ) {
+  }
 
   ngOnInit(): void {
   }
 
-  addFlashcardComponent() {
-    this.loadComponent.push(1);
+  createComponent() {
+    let componentFactory = this.CFR.resolveComponentFactory(AddFlashcardComponent);
+
+    let childComponentRef = this.VCR.createComponent(componentFactory);
+
+    let childComponent = childComponentRef.instance;
+    childComponent.unique_key = ++this.child_unique_key;
+    childComponent.parentRef = this;
+
+    // add reference for newly created component
+    this.componentsReferences.push(childComponentRef);
   }
 
-  removeComponent(componentIndex:number){
-    this.loadComponent.splice(componentIndex,1);
-  } 
+  remove(key: number) {
+    if (this.VCR.length < 1) return;
 
- /*  getvisibilityType() {
-    switch (this.selectedType) {
-      case 'Publiczny':
-        this.deck.visibilityType = 0;
-        break;
-      case 'Prywatny':
-        this.deck.visibilityType = 1;
-        break;
-    }
-  } */
+    let componentRef = this.componentsReferences.filter(
+      x => x.instance.unique_key == key
+    )[0];
+
+    let vcrIndex: number = this.VCR.indexOf(componentRef.hostView);
+
+    // removing component from container
+    this.VCR.remove(vcrIndex);
+
+    // removing component from the list
+    this.componentsReferences = this.componentsReferences.filter(
+      x => x.instance.unique_key !== key
+    );
+  }
 
   SaveDeck() {
-    console.log(this.selectedType);
-/*     this.getvisibilityType(); */
+    this.componentsReferences.forEach(
+      element => this.flashcards.push(element.instance.flashcard)
+    );
+    this.deck.flashcards = this.flashcards;
 
-    console.log(this.deck);
+    this.AddDeck()
+    console.log("saving")
+  }
 
-    //zapysywanie decku do bazy
+  AddDeck() {
+    this.deckService
+    .addDeck(this.deck)
+    .subscribe((deck: IDeck) => this.decksUpdated.emit(deck))
   }
 }

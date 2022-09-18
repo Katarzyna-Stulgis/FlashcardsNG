@@ -20,7 +20,7 @@
                 <textarea matInput placeholder="Opis..." name="Opis" [(ngModel)]="deck.description"></textarea>
             </mat-form-field>
         </form>
-<!--         <div class="visibility-radio-buttons">
+        <!--  <div class="visibility-radio-buttons">
             <label id="radio-group-label">Widoczność:</label>
             <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" color="primary"
                 [(ngModel)]="selectedType">
@@ -31,18 +31,13 @@
         </div> -->
     </div>
 
-    <div class="flashcards" >
-        <ng-container #container *ngFor="let component of loadComponent ; index as i">
-            <app-add-flashcard></app-add-flashcard>
-            <button (click)="removeComponent(i)">remove {{i}}</button>
-        </ng-container>
-
+    <div class="flashcards">
+        <ng-template #viewContainerRef></ng-template>
     </div>
 
     <div id="add-flashcard">
-        <button id="add-flashcard-button" mat-button color="primary" (click)="addFlashcardComponent()">+ Dodaj fiszkę</button>
+        <button id="add-flashcard-button" mat-button color="primary" (click)="createComponent()">+ Dodaj fiszkę</button>
     </div>
-
     <div id="add-deck">
         <button id="add-deck-button" mat-raised-button color="primary" (click)="SaveDeck()">Gotowe</button>
     </div>

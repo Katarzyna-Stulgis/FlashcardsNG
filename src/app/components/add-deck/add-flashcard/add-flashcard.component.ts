@@ -1,3 +1,4 @@
+import { AddDeckComponent } from './../add-deck.component';
 import { IFlashcard } from './../../../interfaces/IFlashcard';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
@@ -7,8 +8,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./add-flashcard.component.css']
 })
 export class AddFlashcardComponent implements OnInit {
-  @Input() flashcard: IFlashcard = {} as IFlashcard;
-  @Output() flashcardEmitter = new EventEmitter<IFlashcard>();
+  public unique_key: number = 0;
+  public parentRef: AddDeckComponent = {} as AddDeckComponent;
+
+  flashcard: IFlashcard = {} as IFlashcard;
 
   constructor() { }
 
@@ -16,8 +19,8 @@ export class AddFlashcardComponent implements OnInit {
   }
 
   deleteFlashcard() {
-    console.log(this.flashcard);
-    this.flashcardEmitter.emit(this.flashcard);
+    console.log(this.unique_key)
+    this.parentRef.remove(this.unique_key)
   }
 
 }
