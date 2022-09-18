@@ -1,4 +1,4 @@
-#answer-container{
+#answer-container {
     background-color: #E0F2F1;
     display: grid;
     padding: 10px;
@@ -6,22 +6,23 @@
     margin-bottom: 10px;
 }
 
-#question{
-font-size: medium;
+#question {
+    font-size: large;
 }
 
-#answer-name{
+#answer-name {
+    font-size: large;
     font-weight: bold;
 }
 
-#answer{
-
+#answer {
+    font-size: large;
 }
 
-#correct-answer-container{
+#correct-answer-container {
     background-color: #C8E6C9;
     border-radius: 10px;
     padding: 5px;
 
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }

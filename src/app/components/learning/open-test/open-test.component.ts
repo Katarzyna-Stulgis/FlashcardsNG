@@ -18,6 +18,7 @@ export class OpenTestComponent implements OnInit {
   flashcards: IFlashcard[] | undefined = [];
   test: IFlashcardTest[] = [];
   question: IFlashcardTest = {} as IFlashcardTest;
+  userAnswer: string = '';
   currentFlashcard: string | undefined = "";
   iterator: number = 0;
   progressBarValue: number = 0;
@@ -55,7 +56,7 @@ export class OpenTestComponent implements OnInit {
 
   Next() {
     this.question.flashcard = this.flashcards![this.iterator];
-    this.question.userAnswer = this.question.userAnswer;
+    this.question.userAnswer = this.userAnswer;
     this.test.push(this.question);
 
     console.log(this.test);
@@ -69,7 +70,8 @@ export class OpenTestComponent implements OnInit {
       this.progressBarValue = ((this.iterator + 1) / this.flashcards?.length!) * 100;
     }
 
-
+    this.question = {} as IFlashcardTest;
+    this.userAnswer = '';
   }
 
   Shuffle() {
