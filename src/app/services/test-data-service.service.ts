@@ -1,4 +1,3 @@
-import { IFlashcard } from 'src/app/interfaces/IFlashcard';
 import { IFlashcardTest } from './../interfaces/IFlashcardTest';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';

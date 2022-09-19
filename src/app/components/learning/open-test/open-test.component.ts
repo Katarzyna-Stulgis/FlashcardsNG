@@ -35,7 +35,7 @@ export class OpenTestComponent implements OnInit {
   ) { }
 
   async ngOnInit(): Promise<void> {
-    this.subscription = this.testDataService.currTest.subscribe(result => this.result = this.result)
+    this.subscription = this.testDataService.currTest.subscribe(result => this.result = this.result);
 
     this.routeSub = this.route.params.subscribe(params => {
       this.deckId = params['id']
@@ -53,12 +53,6 @@ export class OpenTestComponent implements OnInit {
       });
 
     this.Shuffle();
-  }
-
-  getDeck() {
-    this.deckService
-      .getDeck(this.deckId)
-      .subscribe((result: IDeck) => this.deck = result)
   }
 
   Next() {

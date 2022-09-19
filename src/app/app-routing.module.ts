@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'decks/:id/open-test', component: OpenTestComponent },
   { path: 'decks/:id/closed-test', component: ClosedTestComponent },
   { path: 'decks/:id/open-test/results', component: TestResultsComponent },
+  { path: 'decks/:id/closed-test/results', component: TestResultsComponent },
 ];
 
 @NgModule({
