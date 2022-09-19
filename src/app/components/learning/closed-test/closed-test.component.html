@@ -1,0 +1,35 @@
+<div class="test">
+    <mat-progress-bar mode="determinate" value={{progressBarValue}}></mat-progress-bar>
+
+    <div class="container">
+        <div class="flashcard-question">
+            <span>flashcard</span>
+        </div>
+        <div>
+            <button class="answer-button" mat-button>
+                <div>
+                    <span>answer1</span>
+                </div>
+            </button>
+            <button class="answer-button" mat-button>
+                <div>
+                    <span>answer2</span>
+                </div>
+            </button>
+            <button class="answer-button" mat-button>
+                <div>
+                    <span>answer3</span>
+                </div>
+            </button>
+            <button class="answer-button" mat-button>
+                <div>
+                    <span>answer4</span>
+                </div>
+            </button>
+        </div>
+
+        <div class="ok-button" (click)="Next()">
+            <button mat-raised-button color="primary">OK</button>
+        </div>
+    </div>
+</div>

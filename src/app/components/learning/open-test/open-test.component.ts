@@ -5,6 +5,7 @@ import { Subscription, take } from 'rxjs';
 import { IDeck } from 'src/app/interfaces/IDeck';
 import { IFlashcard } from 'src/app/interfaces/IFlashcard';
 import { DeckService } from 'src/app/services/deck.service';
+import { TestDataServiceService } from 'src/app/services/test-data-service.service';
 
 @Component({
   selector: 'app-open-test',
@@ -23,13 +24,19 @@ export class OpenTestComponent implements OnInit {
   iterator: number = 0;
   progressBarValue: number = 0;
 
+  result: IFlashcardTest[] = [];
+  subscription: Subscription = {} as Subscription;
+
   constructor(
     private deckService: DeckService,
     private route: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    private testDataService: TestDataServiceService
   ) { }
 
   async ngOnInit(): Promise<void> {
+    this.subscription = this.testDataService.currTest.subscribe(result => this.result = this.result)
+
     this.routeSub = this.route.params.subscribe(params => {
       this.deckId = params['id']
     });
@@ -63,6 +70,7 @@ export class OpenTestComponent implements OnInit {
 
     ++this.iterator;
     if (this.iterator >= this.flashcards?.length!) {
+      this.testDataService.sendTestResults(this.test);
       this.router.navigate(['decks', this.deckId, 'open-test', 'results']);
     }
     else {

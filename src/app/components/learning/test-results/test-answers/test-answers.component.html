@@ -1,127 +1,17 @@
 <div id="container">
     <div id="answer-container">
-        <span id="question">pojęcie</span>
-        <div>
-            <span id="answer-name">Twoja odpowiedź: </span>
-            <span id="answer"> answer</span>
+        <span id="question">{{result.flashcard.answer}}</span>
+        <div class="answer-div">
+            <div>
+                <span id="answer-name">Twoja odpowiedź: </span>
+            </div>
+            <div [ngStyle]="{'color':answerIsCorrect ? '#388E3C' : '#D32F2F' }">
+                <span id="answer"> {{result.userAnswer}} </span>
+            </div>
         </div>
     </div>
-    <div id="correct-answer-container">
+    <div id="correct-answer-container" [style.visibility]="answerIsCorrect ? 'hidden' : 'visible' ">
         <span id="answer-name">Poprawna odpowiedź: </span>
-        <span id="answer"> correct-anwer</span>
+        <span id="answer"> {{result.flashcard.answer}}</span>
     </div>
-    <div id="answer-container">
-        <span id="question">pojęcie</span>
-        <div>
-            <span id="answer-name">Twoja odpowiedź: </span>
-            <span id="answer"> answer</span>
-        </div>
-    </div>
-    <div id="correct-answer-container">
-        <span id="answer-name">Poprawna odpowiedź: </span>
-        <span id="answer"> correct-anwer</span>
-    </div>
-    <div id="answer-container">
-        <span id="question">pojęcie</span>
-        <div>
-            <span id="answer-name">Twoja odpowiedź: </span>
-            <span id="answer"> answer</span>
-        </div>
-    </div>
-    <div id="correct-answer-container">
-        <span id="answer-name">Poprawna odpowiedź: </span>
-        <span id="answer"> correct-anwer</span>
-    </div>
-    <div id="answer-container">
-        <span id="question">pojęcie</span>
-        <div>
-            <span id="answer-name">Twoja odpowiedź: </span>
-            <span id="answer"> answer</span>
-        </div>
-    </div>
-    <div id="correct-answer-container">
-        <span id="answer-name">Poprawna odpowiedź: </span>
-        <span id="answer"> correct-anwer</span>
-    </div>
-    <div id="answer-container">
-        <span id="question">pojęcie</span>
-        <div>
-            <span id="answer-name">Twoja odpowiedź: </span>
-            <span id="answer"> answer</span>
-        </div>
-    </div>
-    <div id="correct-answer-container">
-        <span id="answer-name">Poprawna odpowiedź: </span>
-        <span id="answer"> correct-anwer</span>
-    </div>
-    <div id="answer-container">
-        <span id="question">pojęcie</span>
-        <div>
-            <span id="answer-name">Twoja odpowiedź: </span>
-            <span id="answer"> answer</span>
-        </div>
-    </div>
-    <div id="correct-answer-container">
-        <span id="answer-name">Poprawna odpowiedź: </span>
-        <span id="answer"> correct-anwer</span>
-    </div>
-    <div id="answer-container">
-        <span id="question">pojęcie</span>
-        <div>
-            <span id="answer-name">Twoja odpowiedź: </span>
-            <span id="answer"> answer</span>
-        </div>
-    </div>
-    <div id="correct-answer-container">
-        <span id="answer-name">Poprawna odpowiedź: </span>
-        <span id="answer"> correct-anwer</span>
-    </div>
-    <div id="answer-container">
-        <span id="question">pojęcie</span>
-        <div>
-            <span id="answer-name">Twoja odpowiedź: </span>
-            <span id="answer"> answer</span>
-        </div>
-    </div>
-    <div id="correct-answer-container">
-        <span id="answer-name">Poprawna odpowiedź: </span>
-        <span id="answer"> correct-anwer</span>
-    </div>
-    <div id="answer-container">
-        <span id="question">pojęcie</span>
-        <div>
-            <span id="answer-name">Twoja odpowiedź: </span>
-            <span id="answer"> answer</span>
-        </div>
-    </div>
-    <div id="correct-answer-container">
-        <span id="answer-name">Poprawna odpowiedź: </span>
-        <span id="answer"> correct-anwer</span>
-    </div>
-    <div id="answer-container">
-        <span id="question">pojęcie</span>
-        <div>
-            <span id="answer-name">Twoja odpowiedź: </span>
-            <span id="answer"> answer</span>
-        </div>
-    </div>
-    <div id="correct-answer-container">
-        <span id="answer-name">Poprawna odpowiedź: </span>
-        <span id="answer"> correct-anwer</span>
-    </div>
-    <div id="answer-container">
-        <span id="question">pojęcie</span>
-        <div>
-            <span id="answer-name">Twoja odpowiedź: </span>
-            <span id="answer"> answer</span>
-        </div>
-    </div>
-    <div id="correct-answer-container">
-        <span id="answer-name">Poprawna odpowiedź: </span>
-        <span id="answer"> correct-anwer</span>
-    </div>
-    
-
-    
-
 </div>

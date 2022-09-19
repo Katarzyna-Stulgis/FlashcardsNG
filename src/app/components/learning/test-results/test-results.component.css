@@ -48,3 +48,7 @@
     height: 580px;
     overflow: auto;
 }
+
+app-test-answers{
+    margin-bottom: 20px;
+}

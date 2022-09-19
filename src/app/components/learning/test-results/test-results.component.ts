@@ -1,4 +1,7 @@
+import { TestDataServiceService } from './../../../services/test-data-service.service';
+import { IFlashcardTest } from './../../../interfaces/IFlashcardTest';
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-test-results',
@@ -7,9 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestResultsComponent implements OnInit {
 
-  constructor() { }
+  results: IFlashcardTest[] = [];
+  subscription: Subscription = {} as Subscription;
+  numberOfCorrectAnswers: number = 0;
+  numberOfUncorrectAnswers: number = 0;
+  percentageOfCorrectAnswers: number = 0;
+
+  constructor(
+    private testDataService: TestDataServiceService
+  ) { }
 
   ngOnInit(): void {
+    this.subscription = this.testDataService.currTest.subscribe(result => {
+      this.results = result
+    })
+
+    this.countResults();
   }
 
+  countResults() {
+    this.results.forEach(result => {
+      if (result.userAnswer.toLowerCase() == result.flashcard.answer.toLowerCase()) {
+        this.numberOfCorrectAnswers++;
+      }
+      else {
+        this.numberOfUncorrectAnswers++;
+      }
+    });
+
+    this.percentageOfCorrectAnswers = (this.results.length > 0) ? (this.numberOfCorrectAnswers / this.results.length) * 100 : 0;
+  }
+  
 }

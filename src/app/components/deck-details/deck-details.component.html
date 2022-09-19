@@ -10,7 +10,8 @@
             Start
         </button>
 
-        <button class="info-button" mat-raised-button color="primary" [matMenuTriggerFor]="menu" [disabled]="deck.flashcardAmount<1">
+        <button class="info-button" mat-raised-button color="primary" [matMenuTriggerFor]="menu"
+            [disabled]="deck.flashcardAmount<1">
             Test
             <mat-icon>
                 arrow_drop_down
@@ -22,7 +23,7 @@
                 </mat-icon>
                 Test otwarty
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item [routerLink]="['/decks', deckId,'closed-test']">
                 <mat-icon class="add-icon" fontIcon="lock">
                 </mat-icon>
                 Test zamknięty

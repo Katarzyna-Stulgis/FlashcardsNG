@@ -26,3 +26,12 @@
 
     margin-bottom: 30px;
 }
+
+.answer-div{
+    display: flex;
+}
+
+.answer-div>div{
+    display: inline-block;
+    padding-right: 5px;
+}

@@ -24,6 +24,7 @@ import { LearnFlashcardsComponent } from './components/learning/learn-flashcards
 import { OpenTestComponent } from './components/learning/open-test/open-test.component';
 import { TestResultsComponent } from './components/learning/test-results/test-results.component';
 import { TestAnswersComponent } from './components/learning/test-results/test-answers/test-answers.component';
+import { ClosedTestComponent } from './components/learning/closed-test/closed-test.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { TestAnswersComponent } from './components/learning/test-results/test-an
     LearnFlashcardsComponent,
     OpenTestComponent,
     TestResultsComponent,
-    TestAnswersComponent
+    TestAnswersComponent,
+    ClosedTestComponent
   ],
   imports: [
     BrowserModule,

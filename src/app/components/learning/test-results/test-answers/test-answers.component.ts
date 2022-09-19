@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { IFlashcardTest } from './../../../../interfaces/IFlashcardTest';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-test-answers',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test-answers.component.css']
 })
 export class TestAnswersComponent implements OnInit {
+  @Input() result: IFlashcardTest = {} as IFlashcardTest;
+  answerIsCorrect: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.answerIsCorrect = (this.result.userAnswer.toLocaleLowerCase() == this.result.flashcard.answer.toLowerCase()) ? true : false;
   }
 
 }

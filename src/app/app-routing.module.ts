@@ -1,3 +1,4 @@
+import { ClosedTestComponent } from './components/learning/closed-test/closed-test.component';
 import { TestResultsComponent } from './components/learning/test-results/test-results.component';
 import { OpenTestComponent } from './components/learning/open-test/open-test.component';
 import { LearnFlashcardsComponent } from './components/learning/learn-flashcards/learn-flashcards.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'decks/:id', component: DeckDetailsComponent },
   { path: 'decks/:id/start', component: LearnFlashcardsComponent },
   { path: 'decks/:id/open-test', component: OpenTestComponent },
+  { path: 'decks/:id/closed-test', component: ClosedTestComponent },
   { path: 'decks/:id/open-test/results', component: TestResultsComponent },
 ];
 
