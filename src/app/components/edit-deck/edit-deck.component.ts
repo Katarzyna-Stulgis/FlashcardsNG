@@ -1,24 +1,24 @@
-import { IDeckUser } from './../../interfaces/IDeckUser';
-import { DeckComponent } from './../decks/deck/deck.component';
-import { IFlashcard } from './../../interfaces/IFlashcard';
-import { AddFlashcardComponent } from './add-flashcard/add-flashcard.component';
+import { IDeckUser } from '../../interfaces/IDeckUser';
+import { DeckComponent } from '../decks/deck/deck.component';
+import { IFlashcard } from '../../interfaces/IFlashcard';
+import { FlashcardComponent } from './flashcard/flashcard.component';
 import { Component, ComponentFactoryResolver, ComponentRef, EventEmitter, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core';
 import { IDeck } from 'src/app/interfaces/IDeck';
 import { DeckService } from 'src/app/services/deck.service';
 
 @Component({
-  selector: 'app-add-deck',
-  templateUrl: './add-deck.component.html',
-  styleUrls: ['./add-deck.component.css']
+  selector: 'app-edit-deck',
+  templateUrl: './edit-deck.component.html',
+  styleUrls: ['./edit-deck.component.css']
 })
-export class AddDeckComponent implements OnInit {
+export class EditDeckComponent implements OnInit {
   @ViewChild("viewContainerRef", { read: ViewContainerRef })
   VCR: ViewContainerRef = {} as ViewContainerRef;
 
   @Output() decksUpdated = new EventEmitter<IDeck>();
 
   child_unique_key: number = 0;
-  componentsReferences = Array<ComponentRef<AddFlashcardComponent>>()
+  componentsReferences = Array<ComponentRef<FlashcardComponent>>()
 
   deck: IDeck = {} as IDeck;
   flashcards: IFlashcard[] = []
@@ -33,7 +33,7 @@ export class AddDeckComponent implements OnInit {
   }
 
   createComponent() {
-    let componentFactory = this.CFR.resolveComponentFactory(AddFlashcardComponent);
+    let componentFactory = this.CFR.resolveComponentFactory(FlashcardComponent);
 
     let childComponentRef = this.VCR.createComponent(componentFactory);
 

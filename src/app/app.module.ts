@@ -13,8 +13,8 @@ import { FolderComponent } from './components/folders/folder/folder.component';
 import { EditFolderComponent } from './components/edit-folder/edit-folder.component';
 import { FolderDetailsComponent } from './components/folder-details/folder-details.component';
 import { DeleteFolderComponent } from './components/delete-folder/delete-folder.component';
-import { AddDeckComponent } from './components/add-deck/add-deck.component';
-import { AddFlashcardComponent } from './components/add-deck/add-flashcard/add-flashcard.component';
+import { EditDeckComponent } from './components/edit-deck/edit-deck.component';
+import { FlashcardComponent } from './components/edit-deck/flashcard/flashcard.component';
 import { DecksComponent } from './components/decks/decks.component';
 import { DeckComponent } from './components/decks/deck/deck.component';
 import { DeckDetailsComponent } from './components/deck-details/deck-details.component';
@@ -34,8 +34,9 @@ import { ClosedTestComponent } from './components/learning/closed-test/closed-te
     EditFolderComponent,
     FolderDetailsComponent,
     DeleteFolderComponent,
-    AddDeckComponent,
-    AddFlashcardComponent,
+    EditDeckComponent,
+    FlashcardComponent,
+    EditFlashcardComponent,
     DecksComponent,
     DeckComponent,
     DeckDetailsComponent,

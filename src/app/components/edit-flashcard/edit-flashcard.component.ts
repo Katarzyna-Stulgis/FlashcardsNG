@@ -4,7 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FlashcardService } from 'src/app/services/flashcard.service';
 
 @Component({
-  selector: 'app-edit-flashcard',
+  selector: 'app-flashcard',
   templateUrl: './edit-flashcard.component.html',
   styleUrls: ['./edit-flashcard.component.css']
 })
