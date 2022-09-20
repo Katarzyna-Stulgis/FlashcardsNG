@@ -1,3 +1,5 @@
+import { IDeckUser } from './../../interfaces/IDeckUser';
+import { DeckComponent } from './../decks/deck/deck.component';
 import { IFlashcard } from './../../interfaces/IFlashcard';
 import { AddFlashcardComponent } from './add-flashcard/add-flashcard.component';
 import { Component, ComponentFactoryResolver, ComponentRef, EventEmitter, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core';
@@ -24,7 +26,7 @@ export class AddDeckComponent implements OnInit {
   constructor(
     private CFR: ComponentFactoryResolver,
     private deckService: DeckService
-    ) {
+  ) {
   }
 
   ngOnInit(): void {
@@ -67,13 +69,23 @@ export class AddDeckComponent implements OnInit {
     );
     this.deck.flashcards = this.flashcards;
 
+    var deckUser: IDeckUser = {
+      isEditable: true,
+      userId: '6b81215f-4b26-4493-93b0-b508dc91921b',
+   /*    deckId: '' */
+    }
+    this.deck.deckUsers = [];
+    this.deck.deckUsers.push(deckUser)
+
+    console.log(this.deck)
+
     this.AddDeck()
     console.log("saving")
   }
 
   AddDeck() {
     this.deckService
-    .addDeck(this.deck)
-    .subscribe((deck: IDeck) => this.decksUpdated.emit(deck))
+      .addDeck(this.deck)
+      .subscribe((deck: IDeck) => this.decksUpdated.emit(deck))
   }
 }
