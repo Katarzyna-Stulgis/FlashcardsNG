@@ -1,8 +1,13 @@
+import { DeleteDeckComponent } from './../delete-deck/delete-deck.component';
+import { IFlashcard } from 'src/app/interfaces/IFlashcard';
+import { EditFlashcardComponent } from './../edit-flashcard/edit-flashcard.component';
+import { EditDeckComponent } from './../edit-deck/edit-deck.component';
 import { DeckService } from './../../services/deck.service';
 import { IDeck } from './../../interfaces/IDeck';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-deck-details',
@@ -11,12 +16,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DeckDetailsComponent implements OnInit {
   deck: IDeck = {} as IDeck;
+  flashcard: IFlashcard = {} as IFlashcard;
   deckId: string = "";
   private routeSub: Subscription = {} as Subscription;
 
   constructor(
     private deckService: DeckService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -33,4 +40,30 @@ export class DeckDetailsComponent implements OnInit {
       .subscribe((result: IDeck) => this.deck = result)
   }
 
+  openDialog(name: string): void {
+    if (name == 'edit-deck') {
+      const dialogRef = this.dialog.open(EditDeckComponent, {
+        width: 'auto',
+        data: this.deck
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
+    }
+    else if (name == 'add-flashcard') {
+      this.flashcard.deckId = this.deckId;
+      this.dialog.open(EditFlashcardComponent, {
+        width: 'auto',
+        data: { flashcard: this.flashcard, action: "add" }
+      });
+    }
+    else if (name == 'delete-deck') {
+      this.flashcard.deckId = this.deckId;
+      this.dialog.open(DeleteDeckComponent, {
+        width: 'auto',
+        data: this.deck
+      });
+    }
+  }
 }

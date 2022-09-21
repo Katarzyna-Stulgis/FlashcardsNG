@@ -5,11 +5,14 @@
         </div>
         <div class="answer">
             {{flashcard.answer}}
-        </div> 
+        </div>
     </div>
     <div class="edit">
-        <button mat-icon-button (click)="openDialog()">
+        <button mat-icon-button (click)="openDialog('edit')">
             <mat-icon class="add-icon" fontIcon="edit"></mat-icon>
-          </button>
+        </button>
+        <button mat-icon-button (click)="openDialog('delete')">
+            <mat-icon class="add-icon" fontIcon="delete"></mat-icon>
+        </button>
     </div>
 </div>

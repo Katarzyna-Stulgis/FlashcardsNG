@@ -1,44 +1,21 @@
-<div class="new-deck">
-    <div class="info">
-        <div>
-            <span>{{actionName}}</span>
+<div class="dialog">
+    <h1>Edycja Folderu</h1>
+    <form class="form">
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Nazwa </mat-label>
+            <input matInput [(ngModel)]="data.title" placeholder="Nazwa Folderu" name="Nazwa">
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Opis</mat-label>
+            <textarea matInput [(ngModel)]="data.description" placeholder="Opis..." name="Opis"></textarea>
+        </mat-form-field>
+    </form>
+
+    <div>
+        <div mat-dialog-actions>
+            <button mat-stroked-button color="primary" (click)="CloseDialog()">Anuluj</button>
+            <button mat-raised-button (click)="SaveDeck()" color="primary">Ok</button>
         </div>
-        <div>
-            <button mat-raised-button color="primary" (click)="SaveDeck()">Gotowe</button>
-        </div>
-    </div>
-
-    <div class="data">
-        <form class="form">
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Nazwa </mat-label>
-                <input matInput placeholder="Nazwa zestawu" name="Nazwa" [(ngModel)]="deck!.title">
-            </mat-form-field>
-
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Opis</mat-label>
-                <textarea matInput placeholder="Opis..." name="Opis" [(ngModel)]="deck!.description"></textarea>
-            </mat-form-field>
-        </form>
-        <!--  <div class="visibility-radio-buttons">
-            <label id="radio-group-label">Widoczność:</label>
-            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" color="primary"
-                [(ngModel)]="selectedType">
-                <mat-radio-button class="example-radio-button" *ngFor="let type of visibilityTypes" [value]="type">
-                    {{type}}
-                </mat-radio-button>
-            </mat-radio-group>
-        </div> -->
-    </div>
-
-    <div class="flashcards">
-        <ng-template #viewContainerRef></ng-template>
-    </div>
-
-    <div id="add-flashcard">
-        <button id="add-flashcard-button" mat-button color="primary" (click)="createComponent()">+ Dodaj fiszkę</button>
-    </div>
-    <div id="add-deck">
-        <button id="add-deck-button" mat-raised-button color="primary" (click)="SaveDeck()">Gotowe</button>
     </div>
 </div>

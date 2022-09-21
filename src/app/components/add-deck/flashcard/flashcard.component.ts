@@ -1,4 +1,4 @@
-import { EditDeckComponent } from '../edit-deck.component';
+import { AddDeckComponent } from '../add-deck.component';
 import { IFlashcard } from '../../../interfaces/IFlashcard';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
@@ -9,7 +9,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class FlashcardComponent implements OnInit {
   public unique_key: number = 0;
-  public parentRef: EditDeckComponent = {} as EditDeckComponent;
+  public parentRef: AddDeckComponent = {} as AddDeckComponent;
 
   flashcard: IFlashcard = {} as IFlashcard;
 

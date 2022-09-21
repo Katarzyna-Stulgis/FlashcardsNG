@@ -16,15 +16,15 @@ export class FlashcardService {
     return this.httpClient.get<IFlashcard>(`${environment.apiUrl}/${this.url}/${flashcardId}`);
   }
 
-  public addDeck(folder: IFlashcard): Observable<IFlashcard> {
+  public addFlashcard(folder: IFlashcard): Observable<IFlashcard> {
     return this.httpClient.post<IFlashcard>(`${environment.apiUrl}/${this.url}`, folder);
   }
 
-  public editDeck(deck: IFlashcard): Observable<IFlashcard> {
+  public editFlashcard(deck: IFlashcard): Observable<IFlashcard> {
     return this.httpClient.put<IFlashcard>(`${environment.apiUrl}/${this.url}/${deck.flashcardId}`, deck);
   }
 
-  public deleteDeck(flashcardId: string): Observable<IFlashcard> {
+  public deleteFlashcard(flashcardId: string): Observable<IFlashcard> {
     return this.httpClient.delete<IFlashcard>(`${environment.apiUrl}/${this.url}/${flashcardId}`);
   }
 }

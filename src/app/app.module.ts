@@ -13,8 +13,8 @@ import { FolderComponent } from './components/folders/folder/folder.component';
 import { EditFolderComponent } from './components/edit-folder/edit-folder.component';
 import { FolderDetailsComponent } from './components/folder-details/folder-details.component';
 import { DeleteFolderComponent } from './components/delete-folder/delete-folder.component';
-import { EditDeckComponent } from './components/edit-deck/edit-deck.component';
-import { FlashcardComponent } from './components/edit-deck/flashcard/flashcard.component';
+import { AddDeckComponent } from './components/add-deck/add-deck.component';
+import { FlashcardComponent } from './components/add-deck/flashcard/flashcard.component';
 import { DecksComponent } from './components/decks/decks.component';
 import { DeckComponent } from './components/decks/deck/deck.component';
 import { DeckDetailsComponent } from './components/deck-details/deck-details.component';
@@ -25,6 +25,9 @@ import { OpenTestComponent } from './components/learning/open-test/open-test.com
 import { TestResultsComponent } from './components/learning/test-results/test-results.component';
 import { TestAnswersComponent } from './components/learning/test-results/test-answers/test-answers.component';
 import { ClosedTestComponent } from './components/learning/closed-test/closed-test.component';
+import { EditDeckComponent } from './components/edit-deck/edit-deck.component';
+import { DeleteFlashcardComponent } from './components/delete-flashcard/delete-flashcard.component';
+import { DeleteDeckComponent } from './components/delete-deck/delete-deck.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,7 @@ import { ClosedTestComponent } from './components/learning/closed-test/closed-te
     EditFolderComponent,
     FolderDetailsComponent,
     DeleteFolderComponent,
-    EditDeckComponent,
+    AddDeckComponent,
     FlashcardComponent,
     EditFlashcardComponent,
     DecksComponent,
@@ -46,7 +49,10 @@ import { ClosedTestComponent } from './components/learning/closed-test/closed-te
     OpenTestComponent,
     TestResultsComponent,
     TestAnswersComponent,
-    ClosedTestComponent
+    ClosedTestComponent,
+    EditDeckComponent,
+    DeleteFlashcardComponent,
+    DeleteDeckComponent
   ],
   imports: [
     BrowserModule,

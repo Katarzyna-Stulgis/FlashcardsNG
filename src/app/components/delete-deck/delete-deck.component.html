@@ -1,0 +1,15 @@
+<div class="dialog">
+    <h1>Usuwanie zestawu</h1>
+    <p>
+        Czy na pewno chcesz usunąć ten zestaw?
+    </p>
+    <p>
+        Usunięcie zestawu spowoduje usunięcie wszystkich fiszek w nim zawartych.
+    </p>
+    <div>
+        <div mat-dialog-actions>
+            <button mat-stroked-button color="primary" (click)="CloseDialog()">Anuluj</button>
+            <button mat-raised-button (click)="Delete()" color="primary">Usuń</button>
+        </div>
+    </div>
+</div>

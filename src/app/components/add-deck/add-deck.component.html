@@ -1,0 +1,44 @@
+<div class="new-deck">
+    <div class="info">
+        <div>
+            <span>{{actionName}}</span>
+        </div>
+        <div>
+            <button mat-raised-button color="primary" (click)="SaveDeck()">Gotowe</button>
+        </div>
+    </div>
+
+    <div class="data">
+        <form class="form">
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Nazwa </mat-label>
+                <input matInput placeholder="Nazwa zestawu" name="Nazwa" [(ngModel)]="deck!.title">
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Opis</mat-label>
+                <textarea matInput placeholder="Opis..." name="Opis" [(ngModel)]="deck!.description"></textarea>
+            </mat-form-field>
+        </form>
+        <!--  <div class="visibility-radio-buttons">
+            <label id="radio-group-label">Widoczność:</label>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" color="primary"
+                [(ngModel)]="selectedType">
+                <mat-radio-button class="example-radio-button" *ngFor="let type of visibilityTypes" [value]="type">
+                    {{type}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </div> -->
+    </div>
+
+    <div class="flashcards">
+        <ng-template #viewContainerRef></ng-template>
+    </div>
+
+    <div id="add-flashcard">
+        <button id="add-flashcard-button" mat-button color="primary" (click)="createComponent()">+ Dodaj fiszkę</button>
+    </div>
+    <div id="add-deck">
+        <button id="add-deck-button" mat-raised-button color="primary" (click)="SaveDeck()">Gotowe</button>
+    </div>
+</div>

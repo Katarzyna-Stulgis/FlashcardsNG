@@ -34,11 +34,11 @@
             <mat-icon class="icon">more_vert</mat-icon>
         </button>
         <mat-menu #editmenu="matMenu">
-            <button mat-menu-item [routerLink]="['/decks', deckId,'edit-deck']">
+            <button mat-menu-item (click)="openDialog('edit-deck')">
                 <mat-icon fontIcon="edit"></mat-icon>
                 <span>Edytuj</span>
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="openDialog('delete-deck')">
                 <mat-icon fontIcon="delete"></mat-icon>
                 <span>Usuń</span>
             </button>
@@ -52,7 +52,6 @@
 </div>
 
 <div id="add-edit-flashcards">
-    <button id="add-edit-flashcards-button" mat-raised-button color="primary"
-        [routerLink]="['/decks', deckId,'edit-deck']">
-        Dodaj lub usuń pojęcia</button>
+    <button id="add-edit-flashcards-button" mat-raised-button color="primary" (click)="openDialog('add-flashcard')">
+        Dodaj pojęcia</button>
 </div>
