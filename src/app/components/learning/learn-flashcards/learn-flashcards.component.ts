@@ -48,12 +48,6 @@ export class LearnFlashcardsComponent implements OnInit {
       });
   }
 
-  getDeck() {
-    this.deckService
-      .getDeck(this.deckId)
-      .subscribe((result: IDeck) => this.deck = result)
-  }
-
   ReverseFlashcard() {
     if (this.currentFlashcard == this.flashcards![this.iterator].question) {
       this.currentFlashcard = this.flashcards![this.iterator].answer

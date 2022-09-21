@@ -1,7 +1,7 @@
 <div class="new-deck">
     <div class="info">
         <div>
-            <span>Tworzenie nowego zestawu</span>
+            <span>{{actionName}}</span>
         </div>
         <div>
             <button mat-raised-button color="primary" (click)="SaveDeck()">Gotowe</button>
@@ -12,12 +12,12 @@
         <form class="form">
             <mat-form-field class="full-width" appearance="fill">
                 <mat-label>Nazwa </mat-label>
-                <input matInput placeholder="Nazwa zestawu" name="Nazwa" [(ngModel)]="deck.title">
+                <input matInput placeholder="Nazwa zestawu" name="Nazwa" [(ngModel)]="deck!.title">
             </mat-form-field>
 
             <mat-form-field class="full-width" appearance="fill">
                 <mat-label>Opis</mat-label>
-                <textarea matInput placeholder="Opis..." name="Opis" [(ngModel)]="deck.description"></textarea>
+                <textarea matInput placeholder="Opis..." name="Opis" [(ngModel)]="deck!.description"></textarea>
             </mat-form-field>
         </form>
         <!--  <div class="visibility-radio-buttons">

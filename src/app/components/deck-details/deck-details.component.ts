@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DeckDetailsComponent implements OnInit {
   deck: IDeck = {} as IDeck;
-   deckId: string = "";
+  deckId: string = "";
   private routeSub: Subscription = {} as Subscription;
 
   constructor(

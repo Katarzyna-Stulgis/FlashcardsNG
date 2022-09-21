@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'decks/:id/start', component: LearnFlashcardsComponent },
   { path: 'decks/:id/open-test', component: OpenTestComponent },
   { path: 'decks/:id/closed-test', component: ClosedTestComponent },
+  { path: 'decks/:id/edit-deck', component: EditDeckComponent },
   { path: 'decks/:id/open-test/results', component: TestResultsComponent },
   { path: 'decks/:id/closed-test/results', component: TestResultsComponent },
 ];

@@ -1,10 +1,11 @@
 import { IDeckUser } from '../../interfaces/IDeckUser';
-import { DeckComponent } from '../decks/deck/deck.component';
 import { IFlashcard } from '../../interfaces/IFlashcard';
 import { FlashcardComponent } from './flashcard/flashcard.component';
 import { Component, ComponentFactoryResolver, ComponentRef, EventEmitter, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core';
 import { IDeck } from 'src/app/interfaces/IDeck';
 import { DeckService } from 'src/app/services/deck.service';
+import { Subscription, take } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-deck',
@@ -20,16 +21,81 @@ export class EditDeckComponent implements OnInit {
   child_unique_key: number = 0;
   componentsReferences = Array<ComponentRef<FlashcardComponent>>()
 
-  deck: IDeck = {} as IDeck;
-  flashcards: IFlashcard[] = []
+  deck: IDeck | undefined = {} as IDeck;
+  flashcards: IFlashcard[] = [];
+
+  deckId: string = "";
+  private routeSub: Subscription = {} as Subscription;
+  actionName: string = "";
 
   constructor(
     private CFR: ComponentFactoryResolver,
-    private deckService: DeckService
-  ) {
+    private deckService: DeckService,
+    private route: ActivatedRoute
+  ) { }
+
+  async ngOnInit(): Promise<void> {
+    this.routeSub = this.route.params.subscribe(params => {
+      this.deckId = params['id']
+    });
+
+    if (this.deckId == undefined) {
+      this.actionName = "Tworzenie nowego zestawu"
+    }
+    else {
+      this.actionName = "Edycja zestawu"
+
+      const data = await this.deckService
+        .getDeck(this.deckId)
+        .pipe(take(1))
+        .toPromise()
+        .then(data => {
+          this.deck = data,
+            console.log(this.deck)
+        });
+    }
   }
 
-  ngOnInit(): void {
+  SaveDeck() {
+    if (this.deckId == undefined) {
+      this.componentsReferences.forEach(
+        element => this.flashcards.push(element.instance.flashcard)
+      );
+      this.deck!.flashcards = this.flashcards;
+
+      var deckUser: IDeckUser = {
+        isEditable: true,
+        userId: '6b81215f-4b26-4493-93b0-b508dc91921b',
+        /*    deckId: '' */
+      }
+      this.deck!.deckUsers = [];
+      this.deck!.deckUsers.push(deckUser);
+
+      console.log(this.deck)
+
+      this.AddDeck();
+      console.log("saving");
+    }
+    else {
+      console.log(this.deck?.title);
+      console.log(this.deck?.description);
+
+
+      this.EditDeck();
+    }
+  }
+
+  AddDeck() {
+    this.deckService
+      .addDeck(this.deck!)
+      .subscribe((deck: IDeck) => this.decksUpdated.emit(deck))
+  }
+
+  EditDeck() {
+    this.deckService
+      .editDeck(this.deck!)
+      .subscribe((deck: IDeck) => this.decksUpdated.emit(deck));
+
   }
 
   createComponent() {
@@ -63,29 +129,4 @@ export class EditDeckComponent implements OnInit {
     );
   }
 
-  SaveDeck() {
-    this.componentsReferences.forEach(
-      element => this.flashcards.push(element.instance.flashcard)
-    );
-    this.deck.flashcards = this.flashcards;
-
-    var deckUser: IDeckUser = {
-      isEditable: true,
-      userId: '6b81215f-4b26-4493-93b0-b508dc91921b',
-   /*    deckId: '' */
-    }
-    this.deck.deckUsers = [];
-    this.deck.deckUsers.push(deckUser)
-
-    console.log(this.deck)
-
-    this.AddDeck()
-    console.log("saving")
-  }
-
-  AddDeck() {
-    this.deckService
-      .addDeck(this.deck)
-      .subscribe((deck: IDeck) => this.decksUpdated.emit(deck))
-  }
 }

@@ -30,15 +30,11 @@
             </button>
         </mat-menu>
 
-        <button class="info-button" mat-icon-button [routerLink]="['/decks/add-deck']">
-            <mat-icon class="icon">edit</mat-icon>
-        </button>
-
-        <button class="menu" mat-icon-button [matMenuTriggerFor]="menu">
+        <button class="menu" mat-icon-button [matMenuTriggerFor]="editmenu">
             <mat-icon class="icon">more_vert</mat-icon>
         </button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item>
+        <mat-menu #editmenu="matMenu">
+            <button mat-menu-item [routerLink]="['/decks', deckId,'edit-deck']">
                 <mat-icon fontIcon="edit"></mat-icon>
                 <span>Edytuj</span>
             </button>
@@ -56,7 +52,7 @@
 </div>
 
 <div id="add-edit-flashcards">
-    <button id="add-edit-flashcards-button" mat-raised-button color="primary" [routerLink]="['/decks/add-deck']">Dodaj
-        lub usuń
-        pojęcia</button>
+    <button id="add-edit-flashcards-button" mat-raised-button color="primary"
+        [routerLink]="['/decks', deckId,'edit-deck']">
+        Dodaj lub usuń pojęcia</button>
 </div>
