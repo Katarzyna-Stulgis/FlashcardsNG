@@ -1,3 +1,4 @@
+import { AuthComponent } from './components/auth/auth.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -28,6 +29,8 @@ import { ClosedTestComponent } from './components/learning/closed-test/closed-te
 import { EditDeckComponent } from './components/edit-deck/edit-deck.component';
 import { DeleteFlashcardComponent } from './components/delete-flashcard/delete-flashcard.component';
 import { DeleteDeckComponent } from './components/delete-deck/delete-deck.component';
+import { MainComponentComponent } from './components/main-component/main-component.component';
+
 
 @NgModule({
   declarations: [
@@ -52,7 +55,9 @@ import { DeleteDeckComponent } from './components/delete-deck/delete-deck.compon
     ClosedTestComponent,
     EditDeckComponent,
     DeleteFlashcardComponent,
-    DeleteDeckComponent
+    DeleteDeckComponent,
+    MainComponentComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="picture">
+
+    </div>
+
+    <div class="login-container">
+        <div>
+            <span class="span">Flashcards</span>
+            <div class="tabs">
+                <mat-tab-group mat-align-tabs="center">
+                    <mat-tab label="Zaloguj się">
+                        <form class="form">
+                            <mat-form-field class="full-width" appearance="fill">
+                                <mat-label>E-mail</mat-label>
+                                <input matInput placeholder="E-mailv" name="E-mail" [(ngModel)]="loginUser.email">
+                            </mat-form-field>
+
+                            <mat-form-field class="full-width" appearance="fill">
+                                <mat-label>Hasło</mat-label>
+                                <input matInput placeholder="Hasło" name="Hasło" type="password"
+                                    [(ngModel)]="loginUser.password">
+                            </mat-form-field>
+                        </form>
+                        <button mat-raised-button color="primary" (click)="login(loginUser)">Zaloguj się</button>
+                    </mat-tab>
+                    <mat-tab label="Zarejestruj się">
+                        <form class="form">
+                            <mat-form-field class="full-width" appearance="fill">
+                                <mat-label>E-mail</mat-label>
+                                <input matInput placeholder="E-mail" name="E-mail" [(ngModel)]="registerUser.email">
+                            </mat-form-field>
+                            <mat-form-field class="full-width" appearance="fill">
+                                <mat-label>Nazwa</mat-label>
+                                <input matInput placeholder="Nazwa" name="Nazwa" [(ngModel)]="registerUser.name">
+                            </mat-form-field>
+                            <mat-form-field class="full-width" appearance="fill">
+                                <mat-label>Hasło</mat-label>
+                                <input matInput placeholder="Hasło" name="Hasło" type="password"
+                                    [(ngModel)]="registerUser.password">
+                            </mat-form-field>
+                            <mat-form-field class="full-width" appearance="fill">
+                                <mat-label>Powtórz Hasło</mat-label>
+                                <input matInput placeholder="Powtórz Hasło" name="Powtórz Hasło" type="password"
+                                    [(ngModel)]="registerUser.confirmPassword">
+                            </mat-form-field>
+                        </form>
+                        <button mat-raised-button color="primary" (click)="register(registerUser)">Zarejestruj
+                            się</button>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,3 +1,5 @@
+import { AuthComponent } from './components/auth/auth.component';
+import { MainComponentComponent } from './components/main-component/main-component.component';
 import { ClosedTestComponent } from './components/learning/closed-test/closed-test.component';
 import { TestResultsComponent } from './components/learning/test-results/test-results.component';
 import { OpenTestComponent } from './components/learning/open-test/open-test.component';
@@ -11,7 +13,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', component: FoldersComponent },
+  { path: '', component: MainComponentComponent },
+  { path: 'login', component: AuthComponent },
   { path: 'folders', component: FoldersComponent },
   { path: 'folders/:id', component: FolderDetailsComponent },
   { path: 'decks', component: DecksComponent },

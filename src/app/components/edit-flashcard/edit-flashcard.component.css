@@ -17,12 +17,12 @@ mat-form-field {
 
 textarea {
     height: 100px;
-  }
+}
 
 .full-width {
     display: grid;
 }
 
-.mat-dialog-actions{
+.mat-dialog-actions {
     float: right;
 }

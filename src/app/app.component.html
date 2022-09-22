@@ -1,8 +1,10 @@
-<mat-toolbar color="primary">
-  <button mat-button>Flashcards</button>
+ <mat-toolbar color="primary">
+  <button mat-button [routerLink]="['/decks']">Flashcards</button>
   <button mat-button [routerLink]="['/decks']">Twoje zestawy do nauki</button>
   <button mat-button [routerLink]="['/folders']">Twoje Foldery</button>
   <button mat-button>Pobierz fiszki</button>
+  <button mat-button [routerLink]="['/login']">Zaloguj się</button>
+  <button mat-button [routerLink]="['/register']">Zarejestuj się</button>
   <button mat-button [matMenuTriggerFor]="menu">Stwórz <mat-icon>arrow_drop_down</mat-icon></button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="openDialog('add')">
@@ -15,4 +17,4 @@
     </button>
   </mat-menu>
 </mat-toolbar>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> 
