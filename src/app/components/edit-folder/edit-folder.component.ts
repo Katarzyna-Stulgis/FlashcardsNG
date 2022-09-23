@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { IFolder } from 'src/app/interfaces/IFolder';
 import { Component, OnInit, Inject, Output, EventEmitter, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -17,7 +18,8 @@ export class EditFolderComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<EditFolderComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IDialogFolderData,
-    private folderService: FolderService
+    private folderService: FolderService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -68,7 +70,7 @@ export class EditFolderComponent implements OnInit {
   AddFolder() {
     if (this.data.folder.name != undefined) {
       this.data.folder.folderId = "00000000-0000-0000-0000-000000000000";
-      this.data.folder.userId = "72eb5903-7dd5-4133-9f16-3f9fc7d84e87";
+      this.data.folder.userId = this.authService.getToken().UserId;
       this.folderService
         .addFolder(this.data.folder)
         .subscribe((folders: IFolder) => this.foldersUpdated.emit(folders));

@@ -1,3 +1,4 @@
+import { AuthGuard } from './services/auth.guard';
 import { AuthComponent } from './components/auth/auth.component';
 import { MainComponentComponent } from './components/main-component/main-component.component';
 import { ClosedTestComponent } from './components/learning/closed-test/closed-test.component';
@@ -14,18 +15,19 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', component: MainComponentComponent },
-  { path: 'login', component: AuthComponent },
-  { path: 'folders', component: FoldersComponent },
-  { path: 'folders/:id', component: FolderDetailsComponent },
-  { path: 'decks', component: DecksComponent },
-  { path: 'decks/add-deck', component: AddDeckComponent },
-  { path: 'decks/:id', component: DeckDetailsComponent },
-  { path: 'decks/:id/start', component: LearnFlashcardsComponent },
-  { path: 'decks/:id/open-test', component: OpenTestComponent },
-  { path: 'decks/:id/closed-test', component: ClosedTestComponent },
-  { path: 'decks/:id/edit-deck', component: AddDeckComponent },
-  { path: 'decks/:id/open-test/results', component: TestResultsComponent },
-  { path: 'decks/:id/closed-test/results', component: TestResultsComponent },
+  { path: 'auth', component: AuthComponent },
+  { path: 'folders', component: FoldersComponent, canActivate: [AuthGuard] },
+  { path: 'folders/:id', component: FolderDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'folders/add-deck-to-folder/:id', component: AddDeckComponent, canActivate: [AuthGuard] },
+  { path: 'decks', component: DecksComponent, canActivate: [AuthGuard] },
+  { path: 'decks/add-deck', component: AddDeckComponent, canActivate: [AuthGuard] },
+  { path: 'decks/:id', component: DeckDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'decks/:id/start', component: LearnFlashcardsComponent, canActivate: [AuthGuard] },
+  { path: 'decks/:id/open-test', component: OpenTestComponent, canActivate: [AuthGuard] },
+  { path: 'decks/:id/closed-test', component: ClosedTestComponent, canActivate: [AuthGuard] },
+  { path: 'decks/:id/edit-deck', component: AddDeckComponent, canActivate: [AuthGuard] },
+  { path: 'decks/:id/open-test/results', component: TestResultsComponent, canActivate: [AuthGuard] },
+  { path: 'decks/:id/closed-test/results', component: TestResultsComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

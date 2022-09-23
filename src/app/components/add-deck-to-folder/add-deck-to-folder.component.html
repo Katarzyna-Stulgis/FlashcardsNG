@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>Dodawanie zestawu</h1>
+    <div id="add-new-deck">
+        <div id="add-deck">
+            <button id="add-deck-button" mat-button color="primary" (click)="addNewDeck()">+ Dodaj nowy zestaw</button>
+        </div>
+        <div id="decks">
+            <div id="user-decks" *ngFor="let singleDeck of decksNotInFolder">
+                <app-existing-deck [deck]="singleDeck" [folderId]="data.folderId"></app-existing-deck>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div mat-dialog-actions>
+            <button mat-stroked-button color="primary" (click)="CloseDialog()">Anuluj</button>
+        </div>
+    </div>
+</div>

@@ -1,3 +1,5 @@
+import { IDeckFolder } from './../../interfaces/IDeckFolder';
+import { AuthService } from 'src/app/services/auth.service';
 import { IDeckUser } from '../../interfaces/IDeckUser';
 import { IFlashcard } from '../../interfaces/IFlashcard';
 import { FlashcardComponent } from './flashcard/flashcard.component';
@@ -24,21 +26,25 @@ export class AddDeckComponent implements OnInit {
   deck: IDeck | undefined = {} as IDeck;
   flashcards: IFlashcard[] = [];
 
-  deckId: string = "";
+  folderId: string = "";
   private routeSub: Subscription = {} as Subscription;
   actionName: string = "";
+
+  token: string | undefined = '';
 
   constructor(
     private CFR: ComponentFactoryResolver,
     private deckService: DeckService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   async ngOnInit(): Promise<void> {
     this.routeSub = this.route.params.subscribe(params => {
-      this.deckId = params['id']
+      this.folderId = params['id']
     });
+    console.log(this.folderId)
     this.actionName = "Tworzenie nowego zestawu"
   }
 
@@ -50,22 +56,29 @@ export class AddDeckComponent implements OnInit {
 
     var deckUser: IDeckUser = {
       isEditable: true,
-      userId: '6b81215f-4b26-4493-93b0-b508dc91921b',
-      /*    deckId: '' */
+      userId: this.authService.getToken().UserId,
     }
     this.deck!.deckUsers = [];
     this.deck!.deckUsers.push(deckUser);
+
+    if (this.folderId != undefined) {
+      var deckFolder: IDeckFolder = {
+        folderId: this.folderId,
+      }
+      this.deck!.deckFolders = [];
+      this.deck!.deckFolders.push(deckFolder);
+    }
 
     console.log(this.deck)
 
     //saving
     await this.deckService
-    .addDeck(this.deck!)
-    .pipe(take(1))
-    .toPromise()
-    .then(data=>{
-      this.router.navigate(['/decks']);
-    });
+      .addDeck(this.deck!)
+      .pipe(take(1))
+      .toPromise()
+      .then(data => {
+        this.router.navigate(['/decks']);
+      });
   }
 
   createComponent() {

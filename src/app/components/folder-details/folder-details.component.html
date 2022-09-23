@@ -1,26 +1,39 @@
-<div class="info">
-    <div class="info-folder">
-        <p>{{folder.name}}</p>
-        <mat-icon class="icon" aria-hidden="false" fontIcon="folder_open">
-        </mat-icon>
+<div>
+    <div class="info">
+        <div class="info-folder">
+            <p>{{folder.name}}</p>
+            <mat-icon class="icon" aria-hidden="false" fontIcon="folder_open">
+            </mat-icon>
+        </div>
+        <div>
+            <button class="menu" mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon class="icon">more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="addDeckToFolder()">
+                    <mat-icon fontIcon="add"></mat-icon>
+                    <span>Dodaj zestaw</span>
+                </button>
+                <button mat-menu-item (click)="remodeDeckFormFolder()">
+                    <mat-icon fontIcon="remove"></mat-icon>
+                    <span>Usuń zestaw</span>
+                </button>
+                <button mat-menu-item (click)="editFolder('edit')">
+                    <mat-icon fontIcon="edit"></mat-icon>
+                    <span>Edytuj</span>
+                </button>
+                <button mat-menu-item (click)="deleteFolder()">
+                    <mat-icon fontIcon="delete"></mat-icon>
+                    <span>Usuń</span>
+                </button>
+            </mat-menu>
+        </div>
     </div>
-    <div>
-        <button class="menu" mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon class="icon">more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item >
-                <mat-icon fontIcon="add"></mat-icon>
-                <span>Dodaj zestaw</span>
-            </button>
-            <button mat-menu-item (click)="editFolder('edit')">
-                <mat-icon fontIcon="edit"></mat-icon>
-                <span>Edytuj</span>
-            </button>
-            <button mat-menu-item (click)="deleteFolder()">
-                <mat-icon fontIcon="delete"></mat-icon>
-                <span>Usuń</span>
-            </button>
-        </mat-menu>
+    <div class="decks">
+        <div *ngFor="let singleDeck of decksInFolder">
+            <a [routerLink]="['/decks', singleDeck.deckId]">
+                <app-folder-decks [deck]="singleDeck"></app-folder-decks>
+            </a>
+        </div>
     </div>
 </div>

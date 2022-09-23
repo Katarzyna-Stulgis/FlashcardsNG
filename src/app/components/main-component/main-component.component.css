@@ -1,0 +1,14 @@
+.toolbar{
+    display: flex;
+}
+
+#login-button{
+    margin-left: auto;
+}
+
+img{
+    margin-top: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

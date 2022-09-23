@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -12,8 +12,9 @@ export class FolderService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getFolders(): Observable<IFolder[]> {
-    return this.httpClient.get<IFolder[]>(`${environment.apiUrl}/${this.url}`);
+  public getFolders(userId: string): Observable<IFolder[]> {
+    let params = new HttpParams().set('userId', userId);
+    return this.httpClient.get<IFolder[]>(`${environment.apiUrl}/${this.url}`, { params: params });
   }
 
   public getFolder(folderId: string): Observable<IFolder> {

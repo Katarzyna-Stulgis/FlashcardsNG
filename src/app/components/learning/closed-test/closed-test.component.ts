@@ -43,26 +43,22 @@ export class ClosedTestComponent implements OnInit {
       this.deckId = params['id']
     });
 
-    const data = await this.deckService
+    await this.deckService
       .getDeck(this.deckId)
       .pipe(take(1))
       .toPromise()
       .then(data => {
-        this.deck = data
-        this.flashcards = data?.flashcards
-        this.currentFlashcard = data?.flashcards[this.iterator].question
-        this.progressBarValue = ((this.iterator + 1) / this.flashcards?.length!) * 100
-        this.questionAnswers = this.getMultipleRandom(this.flashcards!, 3)
+        this.deck = data;
+        this.flashcards = data?.flashcards;
+        this.currentFlashcard = data?.flashcards[this.iterator].question;
+        this.progressBarValue = ((this.iterator + 1) / this.flashcards?.length!) * 100;
+        this.questionAnswers = this.getMultipleRandom(this.flashcards!, 3, data?.flashcards[this.iterator]!);
       });
 
     this.Shuffle();
-
-    console.log("dasdas");
-    console.log(this.questionAnswers);
-
   }
 
-  getMultipleRandom(arr: IFlashcard[], num: number) {
+  getMultipleRandom(arr: IFlashcard[], num: number, currentFlashcard: IFlashcard) {
     const shuffled = [...arr].sort(() => 0.5 - Math.random());
 
     return shuffled.slice(0, num);

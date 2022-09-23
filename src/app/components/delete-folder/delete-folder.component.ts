@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { take } from 'rxjs';
 import { IDialogFolderData } from 'src/app/interfaces/IDialogFolderData';
 import { IFolder } from 'src/app/interfaces/IFolder';
 import { FolderService } from 'src/app/services/folder.service';
@@ -24,16 +25,16 @@ export class DeleteFolderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  DeleteFolder() {
+  Delete() {
     this.folderService
       .deleteFolder(this.data.folder.folderId)
-      .subscribe(((result: IFolder) => this.folder = result));
-  }
+      .pipe(take(1))
+      .toPromise()
+      .then(data => {
+        this.dialogRef.close();
+        this.router.navigate(['/folders']);
+      })
 
-   Delete() {
-    this.DeleteFolder()
-    this.dialogRef.close();
-    this.router.navigate(['/folders']);
   }
 
   CloseDialog(): void {

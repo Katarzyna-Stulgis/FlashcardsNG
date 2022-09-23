@@ -10,6 +10,6 @@ export interface IDeck {
     flashcardAmount: number;
 
     flashcards: IFlashcard[];
-    deckFoldedrs: IDeckFolder[];
+    deckFolders: IDeckFolder[];
     deckUsers: IDeckUser[];
 }

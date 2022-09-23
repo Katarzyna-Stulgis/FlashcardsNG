@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="deck-name">
+        <span>{{deck.title}}</span>
+    </div>
+    <div>
+        <button mat-mini-fab color="primary" (click)="remove()" *ngIf="!isAdded">
+            <mat-icon class="icon">remove</mat-icon>
+        </button>
+    </div>
+</div>

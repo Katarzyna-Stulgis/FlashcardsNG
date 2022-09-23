@@ -92,7 +92,7 @@ export class LearnFlashcardsComponent implements OnInit {
     this.flashcards![this.iterator].deckId = this.deckId;
     const dialogRef = this.dialog.open(EditFlashcardComponent, {
       width: 'auto',
-      data: this.flashcards![this.iterator]
+      data: { flashcard: this.flashcards![this.iterator], action: 'edit' }
     });
 
     dialogRef.afterClosed().subscribe(result => {

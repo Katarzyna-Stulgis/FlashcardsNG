@@ -1,5 +1,7 @@
+import { AuthGuard } from './services/auth.guard';
+import { AuthService } from 'src/app/services/auth.service';
 import { AuthComponent } from './components/auth/auth.component';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -30,6 +32,11 @@ import { EditDeckComponent } from './components/edit-deck/edit-deck.component';
 import { DeleteFlashcardComponent } from './components/delete-flashcard/delete-flashcard.component';
 import { DeleteDeckComponent } from './components/delete-deck/delete-deck.component';
 import { MainComponentComponent } from './components/main-component/main-component.component';
+import { AddDeckToFolderComponent } from './components/add-deck-to-folder/add-deck-to-folder.component';
+import { ExistingDeckComponent } from './components/add-deck-to-folder/existing-deck/existing-deck.component';
+import { FolderDecksComponent } from './components/folder-details/folder-decks/folder-decks.component';
+import { RemoveDeckFromFolderComponent } from './components/remove-deck-from-folder/remove-deck-from-folder.component';
+import { DeckToRemoveComponent } from './components/remove-deck-from-folder/deck-to-remove/deck-to-remove.component';
 
 
 @NgModule({
@@ -57,7 +64,12 @@ import { MainComponentComponent } from './components/main-component/main-compone
     DeleteFlashcardComponent,
     DeleteDeckComponent,
     MainComponentComponent,
-    AuthComponent
+    AuthComponent,
+    AddDeckToFolderComponent,
+    ExistingDeckComponent,
+    FolderDecksComponent,
+    RemoveDeckFromFolderComponent,
+    DeckToRemoveComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +81,14 @@ import { MainComponentComponent } from './components/main-component/main-compone
     MaterialModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (service: AuthService) => function () { return service.UserIsLoggedIn(); },
+      deps: [AuthService],
+      multi: true
+    },
+    AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

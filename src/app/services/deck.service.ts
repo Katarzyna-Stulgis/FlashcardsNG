@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -12,8 +12,9 @@ export class DeckService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getDecks(): Observable<IDeck[]> {
-    return this.httpClient.get<IDeck[]>(`${environment.apiUrl}/${this.url}`);
+  public getDecks(userId: string): Observable<IDeck[]> {
+    let params = new HttpParams().set('userId', userId);
+    return this.httpClient.get<IDeck[]>(`${environment.apiUrl}/${this.url}`, { params: params });
   }
 
   public getDeck(deckId: string): Observable<IDeck> {

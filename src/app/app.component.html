@@ -1,11 +1,10 @@
- <mat-toolbar color="primary">
-  <button mat-button [routerLink]="['/decks']">Flashcards</button>
-  <button mat-button [routerLink]="['/decks']">Twoje zestawy do nauki</button>
-  <button mat-button [routerLink]="['/folders']">Twoje Foldery</button>
-  <button mat-button>Pobierz fiszki</button>
-  <button mat-button [routerLink]="['/login']">Zaloguj się</button>
-  <button mat-button [routerLink]="['/register']">Zarejestuj się</button>
-  <button mat-button [matMenuTriggerFor]="menu">Stwórz <mat-icon>arrow_drop_down</mat-icon></button>
+<mat-toolbar color="primary">
+  <button mat-button [routerLink]="['/']">Flashcards</button>
+  <button mat-button [routerLink]="['/decks']" *ngIf="userIsLoggedIn">Twoje zestawy do nauki</button>
+  <button mat-button [routerLink]="['/folders']" *ngIf="userIsLoggedIn">Twoje Foldery</button>
+  <button mat-button *ngIf="userIsLoggedIn">Pobierz fiszki</button>
+  <button mat-button [matMenuTriggerFor]="menu" *ngIf="userIsLoggedIn">Stwórz <mat-icon>arrow_drop_down</mat-icon>
+  </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="openDialog('add')">
       <mat-icon class="add-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="folder"></mat-icon>
@@ -16,5 +15,15 @@
       Zestaw do nauki
     </button>
   </mat-menu>
+  <button mat-button *ngIf="!userIsLoggedIn" id="login-button" [routerLink]="['/auth']">Zaloguj sie lub
+    zarejestruj</button>
+
+  <button mat-button id="login-button" [matMenuTriggerFor]="profile" *ngIf="userIsLoggedIn">Hello, {{userName}} <mat-icon>
+      arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu #profile="matMenu">
+    <button mat-button [routerLink]="['/']" (click)="LogOut()">
+      Wyloguj się</button>
+  </mat-menu>
 </mat-toolbar>
-<router-outlet></router-outlet> 
+<router-outlet></router-outlet>

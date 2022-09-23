@@ -23,7 +23,7 @@
                 </mat-icon>
                 Test otwarty
             </button>
-            <button mat-menu-item [routerLink]="['/decks', deckId,'closed-test']">
+            <button mat-menu-item [routerLink]="['/decks', deckId,'closed-test']" [disabled]="deck.flashcardAmount<4">
                 <mat-icon class="add-icon" fontIcon="lock">
                 </mat-icon>
                 Test zamknięty

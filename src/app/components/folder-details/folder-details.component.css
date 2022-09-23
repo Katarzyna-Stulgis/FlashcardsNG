@@ -29,3 +29,26 @@
     padding-right: 25px;
     margin: 0;
 }
+
+.decks {
+    margin-left: 160px;
+    margin-right: 160px;
+    height: 620px;
+    overflow: auto;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
+
+a:active {
+    color: black;
+}
