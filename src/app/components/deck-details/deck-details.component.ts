@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { ShareDeckComponent } from '../share-deck/share-deck.component';
 
 @Component({
   selector: 'app-deck-details',
@@ -42,13 +43,9 @@ export class DeckDetailsComponent implements OnInit {
 
   openDialog(name: string): void {
     if (name == 'edit-deck') {
-      const dialogRef = this.dialog.open(EditDeckComponent, {
+      this.dialog.open(EditDeckComponent, {
         width: 'auto',
         data: this.deck
-      });
-
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');
       });
     }
     else if (name == 'add-flashcard') {
@@ -61,6 +58,13 @@ export class DeckDetailsComponent implements OnInit {
     else if (name == 'delete-deck') {
       this.flashcard.deckId = this.deckId;
       this.dialog.open(DeleteDeckComponent, {
+        width: 'auto',
+        data: this.deck
+      });
+    }
+    else if (name == 'share-deck') {
+      this.flashcard.deckId = this.deckId;
+      this.dialog.open(ShareDeckComponent, {
         width: 'auto',
         data: this.deck
       });

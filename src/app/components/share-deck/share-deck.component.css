@@ -1,0 +1,47 @@
+.text {
+    text-align: center;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+.input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+}
+
+.color-input {
+    color: black;
+}
+
+.full-width {
+    width: 100%;
+    max-width: 310px;
+    min-width: 310px;
+}
+
+.mat-dialog-actions {
+    float: right;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.input-form {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.copy-button {
+    padding-top: 5px;
+}

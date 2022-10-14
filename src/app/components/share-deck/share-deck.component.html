@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="text">
+        <h1>Udostępnianie zestawu</h1>
+        <p>Aby udostępnić zestaw skopiuj i wyślij poniższy kod znajomemu</p>
+    </div>
+    <div class="input-form">
+        <form class="form">
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Kod do zestawu</mat-label>
+                <input class="color-input" type="text" matInput disabled value={{deckId}}>
+            </mat-form-field>
+        </form>
+        <div class="copy-button">
+            <button mat-icon-button #tooltip="matTooltip" matTooltip="Copy"
+                aria-label="Example icon button with a vertical three dot icon">
+                <mat-icon>file_copy</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="buttons" mat-dialog-actions>
+        <button mat-raised-button color="primary" (click)="Close()">Ok</button>
+    </div>
+</div>

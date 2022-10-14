@@ -5,14 +5,19 @@
             <button id="add-deck-button" mat-button color="primary" (click)="addNewDeck()">+ Dodaj nowy zestaw</button>
         </div>
         <div id="decks">
-            <div id="user-decks" *ngFor="let singleDeck of decksNotInFolder">
-                <app-existing-deck [deck]="singleDeck" [folderId]="data.folderId"></app-existing-deck>
+            <div class="data">
+                <p *ngFor="let deck of decksCheckBox">
+                    <mat-checkbox [(ngModel)]="deck.completed" (ngModelChange)="updateAllComplete()">
+                        {{deck.deck.title}}
+                    </mat-checkbox>
+                </p>
             </div>
         </div>
     </div>
     <div>
         <div mat-dialog-actions>
             <button mat-stroked-button color="primary" (click)="CloseDialog()">Anuluj</button>
+            <button mat-raised-button color="primary" (click)="Submit()">Zapisz</button>
         </div>
     </div>
 </div>

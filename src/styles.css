@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face{
+    font-family:'DynaPuff';
+    src: url(assets/fonts/DynaPuff/static/DynaPuff/DynaPuff-Regular.ttf) format('truetype')
+}
+
+.DynaPuff{
+    font-family: 'DynaPuff';
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+* {
+    font-family: DynaPuff /* Replace with your custom font */, sans-serif; 
+    /* Add !important to overwrite all elements */
+}

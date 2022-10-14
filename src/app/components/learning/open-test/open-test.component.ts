@@ -60,8 +60,6 @@ export class OpenTestComponent implements OnInit {
     this.question.userAnswer = this.userAnswer;
     this.test.push(this.question);
 
-    console.log(this.test);
-
     ++this.iterator;
     if (this.iterator >= this.flashcards?.length!) {
       this.testDataService.sendTestResults(this.test);
@@ -81,7 +79,6 @@ export class OpenTestComponent implements OnInit {
     this.iterator = 0;
     this.currentFlashcard = this.flashcards![this.iterator].question
     this.progressBarValue = ((this.iterator + 1) / this.flashcards?.length!) * 100
-    //  console.log(this.flashcards)
   }
 
 }

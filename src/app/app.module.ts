@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './shared/material.module';
@@ -31,12 +31,10 @@ import { ClosedTestComponent } from './components/learning/closed-test/closed-te
 import { EditDeckComponent } from './components/edit-deck/edit-deck.component';
 import { DeleteFlashcardComponent } from './components/delete-flashcard/delete-flashcard.component';
 import { DeleteDeckComponent } from './components/delete-deck/delete-deck.component';
-import { MainComponentComponent } from './components/main-component/main-component.component';
-import { AddDeckToFolderComponent } from './components/add-deck-to-folder/add-deck-to-folder.component';
-import { ExistingDeckComponent } from './components/add-deck-to-folder/existing-deck/existing-deck.component';
+import { MainComponent } from './components/main/main.component';
+import { EditDecksInFolderComponent } from './components/edit-decks-in-folder/edit-decks-in-folder.component';
 import { FolderDecksComponent } from './components/folder-details/folder-decks/folder-decks.component';
-import { RemoveDeckFromFolderComponent } from './components/remove-deck-from-folder/remove-deck-from-folder.component';
-import { DeckToRemoveComponent } from './components/remove-deck-from-folder/deck-to-remove/deck-to-remove.component';
+import { ShareDeckComponent } from './components/share-deck/share-deck.component';
 
 
 @NgModule({
@@ -63,13 +61,11 @@ import { DeckToRemoveComponent } from './components/remove-deck-from-folder/deck
     EditDeckComponent,
     DeleteFlashcardComponent,
     DeleteDeckComponent,
-    MainComponentComponent,
+    MainComponent,
     AuthComponent,
-    AddDeckToFolderComponent,
-    ExistingDeckComponent,
+    EditDecksInFolderComponent,
     FolderDecksComponent,
-    RemoveDeckFromFolderComponent,
-    DeckToRemoveComponent
+    ShareDeckComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,7 +75,8 @@ import { DeckToRemoveComponent } from './components/remove-deck-from-folder/deck
     BrowserAnimationsModule,
 
     MaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [AuthService,
     {

@@ -44,7 +44,6 @@ export class AddDeckComponent implements OnInit {
     this.routeSub = this.route.params.subscribe(params => {
       this.folderId = params['id']
     });
-    console.log(this.folderId)
     this.actionName = "Tworzenie nowego zestawu"
   }
 
@@ -68,8 +67,6 @@ export class AddDeckComponent implements OnInit {
       this.deck!.deckFolders = [];
       this.deck!.deckFolders.push(deckFolder);
     }
-
-    console.log(this.deck)
 
     //saving
     await this.deckService

@@ -38,7 +38,6 @@ export class EditFolderComponent implements OnInit {
     switch (this.data.action) {
       case 'add':
         this.AddFolder();
-        window.location.reload();
         break;
       case 'edit':
         this.EditFolder();
@@ -73,9 +72,13 @@ export class EditFolderComponent implements OnInit {
       this.data.folder.userId = this.authService.getToken().UserId;
       this.folderService
         .addFolder(this.data.folder)
-        .subscribe((folders: IFolder) => this.foldersUpdated.emit(folders));
-      this.data.folder.name = '';
-      this.data.folder.description = '';
+        .subscribe((folders: IFolder) => 
+        { 
+          this.foldersUpdated.emit(folders); 
+          this.data.folder.name = '';
+          this.data.folder.description = '';
+          window.location.reload();
+        });
     }
   }
 

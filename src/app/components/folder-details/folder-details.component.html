@@ -10,13 +10,9 @@
                 <mat-icon class="icon">more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="addDeckToFolder()">
-                    <mat-icon fontIcon="add"></mat-icon>
-                    <span>Dodaj zestaw</span>
-                </button>
-                <button mat-menu-item (click)="remodeDeckFormFolder()">
-                    <mat-icon fontIcon="remove"></mat-icon>
-                    <span>Usuń zestaw</span>
+                <button mat-menu-item (click)="editDecksAtFolder()">
+                    <mat-icon fontIcon="edit"></mat-icon>
+                    <span>Edycja zestawów</span>
                 </button>
                 <button mat-menu-item (click)="editFolder('edit')">
                     <mat-icon fontIcon="edit"></mat-icon>

@@ -2,21 +2,41 @@
     width: 100%;
     height: 90%;
     display: flex;
+    flex-direction: row;
     align-items: center;
+    align-content: centers;
     justify-content: center;
 }
 
-.picture {
-    flex: 1;
+.welcone-div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.welcone-div>p {
+    font-size: 80px;
+    padding: 20px;
+}
+
+.welcone-div>#login {
+    font-size: 30px;
+    padding: 20px;
+}
+
+#app-title {
+    color: #00796B;
+    font-size: 100px;
+    padding: 60px 20px;
 }
 
 .login-container {
-    flex: 1;
+    width: 50%;
     text-align: center;
 }
 
 .span {
-
     font-size: xx-large;
 }
 

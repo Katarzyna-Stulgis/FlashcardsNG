@@ -8,15 +8,20 @@
     font-size: x-large;
 }
 
-#add-deck-button{
+#add-deck-button {
     font-size: large;
+    margin-bottom: 20px;
 }
 
 #decks {
-    margin-top: 20px;
-    width: 620px;
     height: 200px;
+    width: 500px;
     overflow: auto;
+}
+
+.data {
+    padding: 2.5%;
+    text-align: left;
 }
 
 .mat-dialog-actions {
@@ -25,4 +30,9 @@
 
 app-existing-deck {
     margin-bottom: 30px;
+}
+
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #004D40 !important;
 }

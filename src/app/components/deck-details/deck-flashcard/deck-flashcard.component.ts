@@ -22,13 +22,9 @@ export class DeckFlashcardComponent implements OnInit {
 
   openDialog(action: string): void {
     if (action == 'edit') {
-      const dialogRef = this.dialog.open(EditFlashcardComponent, {
+      this.dialog.open(EditFlashcardComponent, {
         width: 'auto',
         data: { flashcard: this.flashcard, action: action },
-      });
-
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');
       });
     }
     else if (action == 'delete') {

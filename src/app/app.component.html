@@ -18,7 +18,8 @@
   <button mat-button *ngIf="!userIsLoggedIn" id="login-button" [routerLink]="['/auth']">Zaloguj sie lub
     zarejestruj</button>
 
-  <button mat-button id="login-button" [matMenuTriggerFor]="profile" *ngIf="userIsLoggedIn">Hello, {{userName}} <mat-icon>
+  <button mat-button id="login-button" [matMenuTriggerFor]="profile" *ngIf="userIsLoggedIn">Hello, {{userName}}
+    <mat-icon>
       arrow_drop_down</mat-icon>
   </button>
   <mat-menu #profile="matMenu">

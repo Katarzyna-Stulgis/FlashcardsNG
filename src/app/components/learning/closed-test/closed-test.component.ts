@@ -69,8 +69,6 @@ export class ClosedTestComponent implements OnInit {
     this.question.userAnswer = this.userAnswer;
     this.test.push(this.question);
 
-    console.log(this.test);
-
     ++this.iterator;
     if (this.iterator >= this.flashcards?.length!) {
       this.testDataService.sendTestResults(this.test);

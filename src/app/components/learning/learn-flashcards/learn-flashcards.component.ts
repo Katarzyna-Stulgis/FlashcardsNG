@@ -90,15 +90,9 @@ export class LearnFlashcardsComponent implements OnInit {
 
   openDialog(): void {
     this.flashcards![this.iterator].deckId = this.deckId;
-    const dialogRef = this.dialog.open(EditFlashcardComponent, {
+    this.dialog.open(EditFlashcardComponent, {
       width: 'auto',
       data: { flashcard: this.flashcards![this.iterator], action: 'edit' }
     });
-
-    dialogRef.afterClosed().subscribe(result => {
-      window.location.reload();
-      console.log('The dialog was closed');
-    });
   }
-
 }

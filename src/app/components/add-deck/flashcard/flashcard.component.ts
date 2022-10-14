@@ -19,7 +19,6 @@ export class FlashcardComponent implements OnInit {
   }
 
   deleteFlashcard() {
-    console.log(this.unique_key)
     this.parentRef.remove(this.unique_key)
   }
 

@@ -34,6 +34,10 @@
             <mat-icon class="icon">more_vert</mat-icon>
         </button>
         <mat-menu #editmenu="matMenu">
+            <button mat-menu-item (click)="openDialog('share-deck')">
+                <mat-icon fontIcon="share"></mat-icon>
+                <span>Udostępnij</span>
+            </button>
             <button mat-menu-item (click)="openDialog('edit-deck')">
                 <mat-icon fontIcon="edit"></mat-icon>
                 <span>Edytuj</span>

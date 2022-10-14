@@ -1,6 +1,6 @@
 import { AuthGuard } from './services/auth.guard';
 import { AuthComponent } from './components/auth/auth.component';
-import { MainComponentComponent } from './components/main-component/main-component.component';
+import { MainComponent } from './components/main/main.component';
 import { ClosedTestComponent } from './components/learning/closed-test/closed-test.component';
 import { TestResultsComponent } from './components/learning/test-results/test-results.component';
 import { OpenTestComponent } from './components/learning/open-test/open-test.component';
@@ -14,7 +14,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', component: MainComponentComponent },
+  { path: '', component: MainComponent },
   { path: 'auth', component: AuthComponent },
   { path: 'folders', component: FoldersComponent, canActivate: [AuthGuard] },
   { path: 'folders/:id', component: FolderDetailsComponent, canActivate: [AuthGuard] },

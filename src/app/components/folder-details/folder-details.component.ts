@@ -1,7 +1,6 @@
-import { RemoveDeckFromFolderComponent } from './../remove-deck-from-folder/remove-deck-from-folder.component';
 import { IDeck } from 'src/app/interfaces/IDeck';
 import { DeckService } from './../../services/deck.service';
-import { AddDeckToFolderComponent } from '../add-deck-to-folder/add-deck-to-folder.component';
+import { EditDecksInFolderComponent } from '../edit-decks-in-folder/edit-decks-in-folder.component';
 import { IFolder } from '../../interfaces/IFolder';
 import { Component, OnInit } from '@angular/core';
 import { FolderService } from 'src/app/services/folder.service';
@@ -77,18 +76,11 @@ export class FolderDetailsComponent implements OnInit {
     });
   }
 
-  addDeckToFolder() {
-    this.dialog.open(AddDeckToFolderComponent, {
+  editDecksAtFolder() {
+    this.dialog.open(EditDecksInFolderComponent, {
       width: 'auto',
       data: this.folder,
     });
-  }
-
-  remodeDeckFormFolder() {
-    this.dialog.open(RemoveDeckFromFolderComponent, {
-      width: 'auto',
-      data: this.folder,
-    });
-  }
+  };
 
 }
