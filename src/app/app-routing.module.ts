@@ -5,11 +5,11 @@ import { ClosedTestComponent } from './components/learning/closed-test/closed-te
 import { TestResultsComponent } from './components/learning/test-results/test-results.component';
 import { OpenTestComponent } from './components/learning/open-test/open-test.component';
 import { LearnFlashcardsComponent } from './components/learning/learn-flashcards/learn-flashcards.component';
-import { DeckDetailsComponent } from './components/deck-details/deck-details.component';
-import { DecksComponent } from './components/decks/decks.component';
-import { AddDeckComponent } from './components/add-deck/add-deck.component';
-import { FolderDetailsComponent } from './components/folder-details/folder-details.component';
-import { FoldersComponent } from './components/folders/folders.component';
+import { DeckDetailsComponent } from './components/details/deck-details/deck-details.component';
+import { DecksComponent } from './components/lists/decks/decks.component';
+import { AddDeckComponent } from './components/addition/add-deck/add-deck.component';
+import { FolderDetailsComponent } from './components/details/folder-details/folder-details.component';
+import { FoldersComponent } from './components/lists/folders/folders.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 

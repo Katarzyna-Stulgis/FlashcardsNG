@@ -6,7 +6,7 @@ import { Subscription, take } from 'rxjs';
 import { IDeck } from 'src/app/interfaces/IDeck';
 import { IFlashcard } from 'src/app/interfaces/IFlashcard';
 import { DeckService } from 'src/app/services/deck.service';
-import { EditFlashcardComponent } from '../../edit-flashcard/edit-flashcard.component';
+import { EditFlashcardComponent } from '../../edition/edit-flashcard/edit-flashcard.component';
 import { throwDialogContentAlreadyAttachedError } from '@angular/cdk/dialog';
 
 @Component({

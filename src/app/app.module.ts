@@ -11,32 +11,32 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './shared/material.module';
-import { FoldersComponent } from './components/folders/folders.component';
-import { FolderComponent } from './components/folders/folder/folder.component';
-import { EditFolderComponent } from './components/edit-folder/edit-folder.component';
-import { FolderDetailsComponent } from './components/folder-details/folder-details.component';
-import { DeleteFolderComponent } from './components/delete-folder/delete-folder.component';
-import { AddDeckComponent } from './components/add-deck/add-deck.component';
-import { FlashcardComponent } from './components/add-deck/flashcard/flashcard.component';
-import { DecksComponent } from './components/decks/decks.component';
-import { DeckComponent } from './components/decks/deck/deck.component';
-import { DeckDetailsComponent } from './components/deck-details/deck-details.component';
-import { DeckFlashcardComponent } from './components/deck-details/deck-flashcard/deck-flashcard.component';
-import { EditFlashcardComponent } from './components/edit-flashcard/edit-flashcard.component';
+import { FoldersComponent } from './components/lists/folders/folders.component';
+import { FolderComponent } from './components/lists/folders/folder/folder.component';
+import { EditFolderComponent } from './components/edition/edit-folder/edit-folder.component';
+import { FolderDetailsComponent } from './components/details/folder-details/folder-details.component';
+import { DeleteFolderComponent } from './components/deletion/delete-folder/delete-folder.component';
+import { AddDeckComponent } from './components/addition/add-deck/add-deck.component';
+import { AddFlashcardComponent } from './components/addition/add-deck/add-flashcard/add-flashcard.component';
+import { DecksComponent } from './components/lists/decks/decks.component';
+import { DeckComponent } from './components/lists/decks/deck/deck.component';
+import { DeckDetailsComponent } from './components/details/deck-details/deck-details.component';
+import { DeckFlashcardComponent } from './components/details/deck-details/deck-flashcard/deck-flashcard.component';
+import { EditFlashcardComponent } from './components/edition/edit-flashcard/edit-flashcard.component';
 import { LearnFlashcardsComponent } from './components/learning/learn-flashcards/learn-flashcards.component';
 import { OpenTestComponent } from './components/learning/open-test/open-test.component';
 import { TestResultsComponent } from './components/learning/test-results/test-results.component';
 import { TestAnswersComponent } from './components/learning/test-results/test-answers/test-answers.component';
 import { ClosedTestComponent } from './components/learning/closed-test/closed-test.component';
-import { EditDeckComponent } from './components/edit-deck/edit-deck.component';
-import { DeleteFlashcardComponent } from './components/delete-flashcard/delete-flashcard.component';
-import { DeleteDeckComponent } from './components/delete-deck/delete-deck.component';
+import { EditDeckComponent } from './components/edition/edit-deck/edit-deck.component';
+import { DeleteFlashcardComponent } from './components/deletion/delete-flashcard/delete-flashcard.component';
+import { DeleteDeckComponent } from './components/deletion/delete-deck/delete-deck.component';
 import { MainComponent } from './components/main/main.component';
-import { EditDecksInFolderComponent } from './components/edit-decks-in-folder/edit-decks-in-folder.component';
-import { FolderDecksComponent } from './components/folder-details/folder-decks/folder-decks.component';
-import { ShareDeckComponent } from './components/share-deck/share-deck.component';
+import { EditDecksInFolderComponent } from './components/edition/edit-decks-in-folder/edit-decks-in-folder.component';
+import { FolderDecksComponent } from './components/details/folder-details/folder-decks/folder-decks.component';
+import { ShareDeckComponent } from './components/share/share-deck/share-deck.component';
 import { ClipboardModule } from 'ngx-clipboard';
-import { GetDeckComponent } from './components/get-deck/get-deck.component';
+import { GetDeckToShareComponent } from './components/share/get-deck-to-share/get-deck-to-share.component';
 
 
 @NgModule({
@@ -48,7 +48,7 @@ import { GetDeckComponent } from './components/get-deck/get-deck.component';
     FolderDetailsComponent,
     DeleteFolderComponent,
     AddDeckComponent,
-    FlashcardComponent,
+    AddFlashcardComponent,
     EditFlashcardComponent,
     DecksComponent,
     DeckComponent,
@@ -68,7 +68,7 @@ import { GetDeckComponent } from './components/get-deck/get-deck.component';
     EditDecksInFolderComponent,
     FolderDecksComponent,
     ShareDeckComponent,
-    GetDeckComponent,
+    GetDeckToShareComponent,
   ],
   imports: [
     BrowserModule,

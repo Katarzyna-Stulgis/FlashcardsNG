@@ -1,6 +1,6 @@
-import { GetDeckComponent } from './components/get-deck/get-deck.component';
+import { GetDeckToShareComponent } from './components/share/get-deck-to-share/get-deck-to-share.component';
 import { AuthService } from './services/auth.service';
-import { EditFolderComponent } from './components/edit-folder/edit-folder.component';
+import { EditFolderComponent } from './components/edition/edit-folder/edit-folder.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { IFolder } from 'src/app/interfaces/IFolder';
@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
       });
     }
     else if(action == 'get'){
-      this.dialog.open(GetDeckComponent, {
+      this.dialog.open(GetDeckToShareComponent, {
         width: 'auto',
         data: { },
       });
