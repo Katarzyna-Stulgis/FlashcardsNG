@@ -38,8 +38,6 @@ export class EditDecksInFolderComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     const UserId = this.authService.getToken().UserId;
-
-    console.log(this.data)
     await this.deckService
       .getDecks(UserId)
       .pipe(take(1))

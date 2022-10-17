@@ -1,3 +1,5 @@
+import { IDeckUser } from './../../interfaces/IDeckUser';
+import { DeckUserService } from './../../services/deck-user.service';
 import { DeleteDeckComponent } from './../delete-deck/delete-deck.component';
 import { IFlashcard } from 'src/app/interfaces/IFlashcard';
 import { EditFlashcardComponent } from './../edit-flashcard/edit-flashcard.component';
@@ -9,6 +11,7 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ShareDeckComponent } from '../share-deck/share-deck.component';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-deck-details',
@@ -20,11 +23,14 @@ export class DeckDetailsComponent implements OnInit {
   flashcard: IFlashcard = {} as IFlashcard;
   deckId: string = "";
   private routeSub: Subscription = {} as Subscription;
+  isEditable: boolean = false;
 
   constructor(
     private deckService: DeckService,
     private route: ActivatedRoute,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private deckUserService: DeckUserService,
+    private authService: AuthService,
   ) { }
 
   ngOnInit(): void {
@@ -33,12 +39,20 @@ export class DeckDetailsComponent implements OnInit {
     });
 
     this.getDeck();
+    this.getdeckFolder();
   }
 
-  getDeck() {
-    this.deckService
+  async getDeck() {
+    await this.deckService
       .getDeck(this.deckId)
       .subscribe((result: IDeck) => this.deck = result)
+  }
+
+  async getdeckFolder() {
+    var userId = this.authService.getToken().UserId;
+    await this.deckUserService
+      .getDeckUser(userId, this.deckId)
+      .subscribe((result: IDeckUser) => this.isEditable = result.isEditable);
   }
 
   openDialog(name: string): void {
@@ -59,7 +73,7 @@ export class DeckDetailsComponent implements OnInit {
       this.flashcard.deckId = this.deckId;
       this.dialog.open(DeleteDeckComponent, {
         width: 'auto',
-        data: this.deck
+        data: { deck: this.deck, isEditable: this.isEditable }
       });
     }
     else if (name == 'share-deck') {

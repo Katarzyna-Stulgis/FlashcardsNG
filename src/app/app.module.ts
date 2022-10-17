@@ -35,6 +35,8 @@ import { MainComponent } from './components/main/main.component';
 import { EditDecksInFolderComponent } from './components/edit-decks-in-folder/edit-decks-in-folder.component';
 import { FolderDecksComponent } from './components/folder-details/folder-decks/folder-decks.component';
 import { ShareDeckComponent } from './components/share-deck/share-deck.component';
+import { ClipboardModule } from 'ngx-clipboard';
+import { GetDeckComponent } from './components/get-deck/get-deck.component';
 
 
 @NgModule({
@@ -66,6 +68,7 @@ import { ShareDeckComponent } from './components/share-deck/share-deck.component
     EditDecksInFolderComponent,
     FolderDecksComponent,
     ShareDeckComponent,
+    GetDeckComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,6 +80,7 @@ import { ShareDeckComponent } from './components/share-deck/share-deck.component
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    ClipboardModule,
   ],
   providers: [AuthService,
     {

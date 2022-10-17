@@ -34,11 +34,11 @@
             <mat-icon class="icon">more_vert</mat-icon>
         </button>
         <mat-menu #editmenu="matMenu">
-            <button mat-menu-item (click)="openDialog('share-deck')">
+            <button mat-menu-item (click)="openDialog('share-deck')" *ngIf="isEditable">
                 <mat-icon fontIcon="share"></mat-icon>
                 <span>Udostępnij</span>
             </button>
-            <button mat-menu-item (click)="openDialog('edit-deck')">
+            <button mat-menu-item (click)="openDialog('edit-deck')" *ngIf="isEditable">
                 <mat-icon fontIcon="edit"></mat-icon>
                 <span>Edytuj</span>
             </button>
@@ -51,11 +51,11 @@
 </div>
 <div class="flashcards">
     <div *ngFor="let singleFlashcard of deck.flashcards">
-        <app-deck-flashcard [flashcard]="singleFlashcard" [deckId]="deckId"></app-deck-flashcard>
+        <app-deck-flashcard [flashcard]="singleFlashcard" [isEditable]="isEditable" [deckId]="deckId"></app-deck-flashcard>
     </div>
 </div>
 
 <div id="add-edit-flashcards">
-    <button id="add-edit-flashcards-button" mat-raised-button color="primary" (click)="openDialog('add-flashcard')">
+    <button id="add-edit-flashcards-button" mat-raised-button color="primary" (click)="openDialog('add-flashcard')" *ngIf="isEditable">
         Dodaj pojęcia</button>
 </div>

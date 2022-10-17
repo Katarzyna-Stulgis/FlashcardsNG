@@ -1,5 +1,5 @@
 export interface IDeckUser {
     isEditable: boolean;
-    /* deckId: string; */
+    deckId: string; 
     userId: string;
 }

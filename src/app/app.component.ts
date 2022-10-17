@@ -1,3 +1,4 @@
+import { GetDeckComponent } from './components/get-deck/get-deck.component';
 import { AuthService } from './services/auth.service';
 import { EditFolderComponent } from './components/edit-folder/edit-folder.component';
 import { Component, OnInit } from '@angular/core';
@@ -27,14 +28,21 @@ export class AppComponent implements OnInit {
     if (this.userIsLoggedIn) {
       this.userName = this.authService.getToken().Name;
     }
-
   }
 
   openDialog(action: string): void {
-    this.dialog.open(EditFolderComponent, {
-      width: 'auto',
-      data: { folder: this.folder, action: action },
-    });
+    if (action == 'add') {
+      this.dialog.open(EditFolderComponent, {
+        width: 'auto',
+        data: { folder: this.folder, action: action },
+      });
+    }
+    else if(action == 'get'){
+      this.dialog.open(GetDeckComponent, {
+        width: 'auto',
+        data: { },
+      });
+    }
   }
 
   LogOut() {

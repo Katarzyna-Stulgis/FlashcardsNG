@@ -55,6 +55,7 @@ export class AddDeckComponent implements OnInit {
 
     var deckUser: IDeckUser = {
       isEditable: true,
+      deckId:"00000000-0000-0000-0000-000000000000",
       userId: this.authService.getToken().UserId,
     }
     this.deck!.deckUsers = [];

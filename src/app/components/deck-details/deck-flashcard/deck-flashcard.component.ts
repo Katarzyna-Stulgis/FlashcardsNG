@@ -13,6 +13,7 @@ export class DeckFlashcardComponent implements OnInit {
 
   @Input() flashcard: IFlashcard = {} as IFlashcard
   @Input() deckId: string = "";
+  @Input() isEditable: boolean= false;
 
   constructor(public dialog: MatDialog) { }
 

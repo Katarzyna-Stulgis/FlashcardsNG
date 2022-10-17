@@ -2,7 +2,7 @@
   <button mat-button [routerLink]="['/']">Flashcards</button>
   <button mat-button [routerLink]="['/decks']" *ngIf="userIsLoggedIn">Twoje zestawy do nauki</button>
   <button mat-button [routerLink]="['/folders']" *ngIf="userIsLoggedIn">Twoje Foldery</button>
-  <button mat-button *ngIf="userIsLoggedIn">Pobierz fiszki</button>
+  <button mat-button *ngIf="userIsLoggedIn" (click)="openDialog('get')">Pobierz zestaw</button>
   <button mat-button [matMenuTriggerFor]="menu" *ngIf="userIsLoggedIn">Stwórz <mat-icon>arrow_drop_down</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
@@ -23,7 +23,7 @@
       arrow_drop_down</mat-icon>
   </button>
   <mat-menu #profile="matMenu">
-    <button mat-button [routerLink]="['/']" (click)="LogOut()">
+    <button mat-menu-item [routerLink]="['/']" (click)="LogOut()">
       Wyloguj się</button>
   </mat-menu>
 </mat-toolbar>

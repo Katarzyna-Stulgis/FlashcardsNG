@@ -8,10 +8,10 @@
         </div>
     </div>
     <div class="edit">
-        <button mat-icon-button (click)="openDialog('edit')">
+        <button mat-icon-button (click)="openDialog('edit')" *ngIf="isEditable">
             <mat-icon class="add-icon" fontIcon="edit"></mat-icon>
         </button>
-        <button mat-icon-button (click)="openDialog('delete')">
+        <button mat-icon-button (click)="openDialog('delete')" *ngIf="isEditable">
             <mat-icon class="add-icon" fontIcon="delete"></mat-icon>
         </button>
     </div>
