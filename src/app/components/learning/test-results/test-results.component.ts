@@ -38,7 +38,7 @@ export class TestResultsComponent implements OnInit {
       }
     });
 
-    this.percentageOfCorrectAnswers = (this.results.length > 0) ? (this.numberOfCorrectAnswers / this.results.length) * 100 : 0;
+    this.percentageOfCorrectAnswers = Math.round((this.results.length > 0) ? (this.numberOfCorrectAnswers / this.results.length) * 100 : 0);
   }
   
 }

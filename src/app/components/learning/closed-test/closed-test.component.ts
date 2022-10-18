@@ -17,9 +17,9 @@ export class ClosedTestComponent implements OnInit {
   deckId: string = "";
   private routeSub: Subscription = {} as Subscription;
   flashcards: IFlashcard[] | undefined = [];
+  possibleAnswers: IFlashcard[] | undefined = [];
   test: IFlashcardTest[] = [];
   question: IFlashcardTest = {} as IFlashcardTest;
-  userAnswer: string = '';
   currentFlashcard: string | undefined = "";
   iterator: number = 0;
   progressBarValue: number = 0;
@@ -50,23 +50,27 @@ export class ClosedTestComponent implements OnInit {
       .then(data => {
         this.deck = data;
         this.flashcards = data?.flashcards;
-        this.currentFlashcard = data?.flashcards[this.iterator].question;
         this.progressBarValue = ((this.iterator + 1) / this.flashcards?.length!) * 100;
-        this.questionAnswers = this.getMultipleRandom(this.flashcards!, 3, data?.flashcards[this.iterator]!);
       });
 
+
     this.Shuffle();
+
+    this.currentFlashcard = this.flashcards![this.iterator].question;
+    this.getAnswers();
   }
 
-  getMultipleRandom(arr: IFlashcard[], num: number, currentFlashcard: IFlashcard) {
-    const shuffled = [...arr].sort(() => 0.5 - Math.random());
+  getAnswers() {
+    this.possibleAnswers = this.flashcards?.filter(x => x.question !== this.currentFlashcard);
+    this.possibleAnswers = this.possibleAnswers?.sort(() => Math.random() - 0.5);
 
-    return shuffled.slice(0, num);
+    this.possibleAnswers = this.possibleAnswers?.splice(0, 3);
+    this.possibleAnswers?.push(this.flashcards![this.iterator]);
+    this.possibleAnswers = this.possibleAnswers?.sort(() => Math.random() - 0.5);
   }
 
   Next() {
     this.question.flashcard = this.flashcards![this.iterator];
-    this.question.userAnswer = this.userAnswer;
     this.test.push(this.question);
 
     ++this.iterator;
@@ -80,7 +84,7 @@ export class ClosedTestComponent implements OnInit {
     }
 
     this.question = {} as IFlashcardTest;
-    this.userAnswer = '';
+    this.getAnswers();
   }
 
   Shuffle() {
@@ -90,4 +94,7 @@ export class ClosedTestComponent implements OnInit {
     this.progressBarValue = ((this.iterator + 1) / this.flashcards?.length!) * 100;
   }
 
+  ClickedAnswer(useranswer: string) {
+    this.question.userAnswer = useranswer;
+  }
 }
