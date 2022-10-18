@@ -4,13 +4,13 @@
             <td>
                 <mat-form-field class="example-full-width input-flashcard" appearance="fill">
                     <mat-label>Pojęcie</mat-label>
-                    <input matInput [(ngModel)]="flashcard.question">
+                    <input matInput [(ngModel)]="flashcard.question" required="To pole jest wymagane">
                 </mat-form-field>
             </td>
             <td>
                 <mat-form-field class="example-full-width input-flashcard" appearance="fill">
                     <mat-label>Definicja</mat-label>
-                    <input matInput [(ngModel)]="flashcard.answer">
+                    <input matInput [(ngModel)]="flashcard.answer" required="To pole jest wymagane">
                 </mat-form-field>
             </td>
             <td id="delete-td">

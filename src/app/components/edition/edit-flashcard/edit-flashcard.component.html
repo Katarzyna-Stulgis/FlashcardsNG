@@ -3,12 +3,12 @@
     <form class="form">
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Pojęcie</mat-label>
-            <input matInput [(ngModel)]="data.flashcard.question" placeholder="Pojęcie" name="Pojęcie">
+            <input matInput [(ngModel)]="data.flashcard.question" placeholder="Pojęcie" name="Pojęcie" required="To pole jest wymagane">
         </mat-form-field>
 
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Definicja</mat-label>
-            <input matInput [(ngModel)]="data.flashcard.answer" placeholder="Definicja" name="Definicja">
+            <input matInput [(ngModel)]="data.flashcard.answer" placeholder="Definicja" name="Definicja" required="To pole jest wymagane">
         </mat-form-field>
     </form>
 

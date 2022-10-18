@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormControl, Validators } from '@angular/forms';
 import { MyErrorStateMatcher } from 'src/app/classes/MyErrorStateMatcher';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-auth',
@@ -42,7 +43,7 @@ export class AuthComponent implements OnInit {
           });
         this.selectedIndex = 0;
       },
-      (error) => {
+      (error: HttpErrorResponse) => {
         this._snackBar.open("Coś poszło nie tak, spróbuj ponownie", "",
           {
             duration: 1500,
