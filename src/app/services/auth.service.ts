@@ -30,7 +30,9 @@ export class AuthService {
     var x = this.httpClient.post(`${environment.apiUrl}/${this.url}/login`, user, {
       responseType: 'text',
     });
-    this.loggedIn.next(true);
+    if (this.getToken() != null) {
+      this.loggedIn.next(true);
+    }
     return x;
   }
 
