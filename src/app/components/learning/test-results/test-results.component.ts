@@ -29,7 +29,11 @@ export class TestResultsComponent implements OnInit {
   }
 
   countResults() {
+    console.log(this.results);
     this.results.forEach(result => {
+      if(result.userAnswer == undefined){
+        result.userAnswer = "";
+      }
       if (result.userAnswer.toLowerCase() == result.flashcard.answer.toLowerCase()) {
         this.numberOfCorrectAnswers++;
       }
