@@ -10,7 +10,7 @@
             </div>
         </div>
     </div>
-    <div id="correct-answer-container" [style.visibility]="answerIsCorrect ? 'hidden' : 'visible' ">
+    <div id="correct-answer-container"  *ngIf="!answerIsCorrect">
         <span id="answer-name">Poprawna odpowiedź: </span>
         <span id="answer"> {{result.flashcard.answer}}</span>
     </div>

@@ -23,29 +23,31 @@
 #summary-span {
     text-align: center;
     font-weight: bold;
-    font-size: x-large;
-    margin-bottom: 25px;
+    font-size: xx-large;
+    margin-bottom: 45px;
 }
 
 #correct-span {
     color: #388E3C;
-    font-size: medium;
-    margin-bottom: 8px;
+    font-size: x-large;
+    margin-bottom: 20px;
 }
 
 #incorrect-span {
     color: #D32F2F;
-    font-size: medium;
-    margin-bottom: 20px;
+    font-size: x-large;
+    margin-bottom: 35px;
 }
 
 #test-result-span {
-    font-size: medium;
+    font-size: x-large;
 }
 
 #answers{
+    margin-left: 160px;
+    margin-right: 160px;
     margin-top: 60px;
-    height: 580px;
+    height: 560px;
     overflow: auto;
 }
 
