@@ -2,7 +2,15 @@
     text-align: center;
 }
 
+.title{
+    text-align: center;
+    font-family: DynaPuff , sans-serif !important;
+    font-size: xx-large;
+    margin-bottom: 15px;
+}
+
 p {
+    margin-top: 10px;
     margin-bottom: 20px;
 }
 

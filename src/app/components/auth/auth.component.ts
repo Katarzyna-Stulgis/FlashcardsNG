@@ -56,7 +56,10 @@ export class AuthComponent implements OnInit {
     this.authService.login(user).subscribe(
       (token: string) => {
         localStorage.setItem('authToken', token);
-        this.router.navigate(['decks']);
+        this.router.navigate(['decks'])
+        .then(()=>{
+          window.location.reload();
+        });
       },
       (error) => {
         this._snackBar.open("Niprawidłowy e-mail lub hasło", "",

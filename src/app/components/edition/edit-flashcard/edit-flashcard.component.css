@@ -3,8 +3,10 @@
     width: max-content;
 }
 
-dialog>h1 {
+.title{
     text-align: center;
+    font-family: DynaPuff , sans-serif;
+    font-size: xx-large;
 }
 
 mat-form-field {
@@ -12,6 +14,7 @@ mat-form-field {
 }
 
 .form {
+    margin-top: 15px;
     width: 650px;
 }
 

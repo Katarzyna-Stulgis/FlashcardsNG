@@ -3,12 +3,15 @@
     height: 300px;
 }
 
-.container>h1 {
-    margin-bottom: 30px;
-    font-size: x-large;
+.title{
+    text-align: center;
+    font-family: DynaPuff , sans-serif !important;
+    font-size: xx-large;
+    margin-bottom: 15px;
 }
 
 #add-deck-button {
+    margin-top: 15px;
     font-size: large;
     margin-bottom: 20px;
 }

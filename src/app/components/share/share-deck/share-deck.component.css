@@ -4,6 +4,14 @@
 
 p {
     margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.title{
+    text-align: center;
+    font-family: DynaPuff , sans-serif !important;
+    font-size: xx-large;
+    margin-bottom: 15px;
 }
 
 .input {
