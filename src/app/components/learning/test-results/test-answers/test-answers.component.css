@@ -8,23 +8,24 @@
 
 #question {
     font-size: large;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 #answer-name {
     font-size: large;
-    font-weight: bold;
 }
 
 #answer {
     font-size: large;
+    font-weight: bold;
 }
 
 #correct-answer-container {
-    background-color: #C8E6C9;
+    background-color: #ebf8ec;
     border-radius: 10px;
     padding: 5px;
 
-    margin-bottom: 30px;
 }
 
 .answer-div{
@@ -34,4 +35,9 @@
 .answer-div>div{
     display: inline-block;
     padding-right: 5px;
+}
+
+#container{
+
+    margin-bottom: 30px;
 }

@@ -12,6 +12,6 @@
     </div>
     <div id="correct-answer-container"  *ngIf="!answerIsCorrect">
         <span id="answer-name">Poprawna odpowiedź: </span>
-        <span id="answer"> {{result.flashcard.answer}}</span>
+        <span id="answer" [ngStyle]="{'color':  '#388E3C' }"> {{result.flashcard.answer}}</span>
     </div>
 </div>

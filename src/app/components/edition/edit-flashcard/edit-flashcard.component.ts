@@ -24,7 +24,7 @@ export class EditFlashcardComponent implements OnInit {
   ngOnInit(): void {
     switch (this.data.action) {
       case 'add':
-        this.actionName = 'Nowy Fiszka';
+        this.actionName = 'Nowa Fiszka';
         break;
       case 'edit':
         this.getFlashcard();
